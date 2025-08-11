@@ -1,7 +1,6 @@
-// [TheatreComedie-Vite] #3
+// [TheatreComedie-Vite-Bold] #3
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { useTheme } from "@theme/ThemeProvider";
-import FooterLinks from "./FooterLinks";
 
 const nav = [
     { to: "/pieces", label: "Pièces" },
@@ -15,18 +14,32 @@ export default function Layout() {
     const { theme, toggle } = useTheme();
 
     return (
-        <div className="bg-paper min-h-screen">
-            <header className="header-glass sticky top-0 z-50 border-b dark:border-neutral-800">
+        <div className="min-h-screen">
+            <header className="header">
                 <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
                     <Link
                         to="/"
                         className="text-lg font-extrabold tracking-tight"
                     >
-                        <span className="text-[color:var(--brand-1)]">
+                        <span
+                            style={{
+                                color: "var(--paper)",
+                                background: "var(--ink-900)",
+                                padding: "2px 8px",
+                                borderRadius: 999,
+                            }}
+                        >
                             Théâtre
                         </span>
-                        <span className="text-neutral-500"> & </span>
-                        <span className="text-[color:var(--brand-2)]">
+                        <span className="mx-1 text-neutral-500">/</span>
+                        <span
+                            style={{
+                                color: "var(--paper)",
+                                background: "var(--accent)",
+                                padding: "2px 8px",
+                                borderRadius: 999,
+                            }}
+                        >
                             Comédies
                         </span>
                     </Link>
@@ -36,7 +49,7 @@ export default function Layout() {
                                 key={n.to}
                                 to={n.to}
                                 className={({ isActive }) =>
-                                    `link-underline rounded-xl px-3 py-1.5 transition ${isActive ? "bg-neutral-900 text-white dark:bg-white dark:text-black" : "hover:bg-neutral-100/60 dark:hover:bg-neutral-800/60"}`
+                                    `link-underline rounded-full px-3 py-1.5 transition ${isActive ? "bg-[var(--ink-900)] text-white" : "hover:bg-[color-mix(in oklab, var(--mist) 30%, transparent)]"}`
                                 }
                             >
                                 {n.label}
@@ -45,7 +58,7 @@ export default function Layout() {
                         <button
                             aria-label="Basculer le thème"
                             onClick={toggle}
-                            className="ml-2 rounded-xl border px-3 py-1.5 text-xs hover:bg-neutral-100/60 dark:border-neutral-700 dark:hover:bg-neutral-800/60"
+                            className="btn btn-ghost ml-2 text-xs"
                         >
                             {theme === "dark" ? "☀︎" : "☾"}
                         </button>
@@ -55,13 +68,10 @@ export default function Layout() {
 
             <Outlet />
 
-            <footer className="text-muted-foreground mt-16 border-t py-10 text-sm dark:border-neutral-800">
-                <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4">
-                    <FooterLinks />
-                    <div>
-                        © {new Date().getFullYear()} Théâtre & Comédies — Tous
-                        droits réservés.
-                    </div>
+            <footer className="footer-band mt-20 py-12 text-sm">
+                <div className="mx-auto max-w-6xl px-4 text-neutral-600 dark:text-neutral-300">
+                    © {new Date().getFullYear()} Théâtre & Comédies — Tous
+                    droits réservés.
                 </div>
             </footer>
         </div>

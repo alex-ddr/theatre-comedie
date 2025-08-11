@@ -1,16 +1,18 @@
 @import "tailwindcss";
 
-/* Palette chaleureuse */
+/* Palette (requested) */
 :root {
-    --background: #faf7f2;
-    --foreground: #1c1917;
-    --brand-1: #7c3a2d; /* terre cuite */
-    --brand-2: #b45309; /* ambre */
-    --brand-3: #065f46; /* vert profond */
+    --ink-900: #2d3142; /* very dark blue */
+    --ink-700: #4f5d75; /* slate */
+    --mist: #bfc0c0; /* light grey */
+    --paper: #ffffff; /* white */
+    --accent: #ef8354; /* warm orange */
+    --bg: var(--paper);
+    --fg: var(--ink-900);
 }
 .dark {
-    --background: #0e0d0b;
-    --foreground: #f5f3ef;
+    --bg: #191b23;
+    --fg: #f6f7fb;
 }
 
 /* Base */
@@ -19,73 +21,154 @@ body {
     height: 100%;
 }
 body {
-    background: var(--background);
-    color: var(--foreground);
+    background: var(--bg);
+    color: var(--fg);
 }
 ::selection {
-    background: rgba(180, 83, 9, 0.25);
+    background: color-mix(in oklab, var(--accent) 40%, transparent);
 }
 
-/* Typo & rhythm */
-.prose {
-    max-width: 70ch;
+/* Typography */
+:root {
+    --lh: 1.5;
 }
-.text-muted-foreground {
-    color: color-mix(in oklab, currentColor 60%, transparent);
+body {
+    line-height: var(--lh);
+    font-feature-settings:
+        "ss01" on,
+        "liga" on;
 }
 .h1 {
-    @apply text-4xl font-extrabold tracking-tight sm:text-5xl;
+    @apply text-5xl font-extrabold tracking-tight sm:text-6xl;
+    letter-spacing: -0.02em;
 }
 .h2 {
-    @apply text-2xl font-semibold tracking-tight;
+    @apply text-3xl font-bold tracking-tight;
+}
+.h3 {
+    @apply text-xl font-semibold;
+}
+.lead {
+    @apply text-lg text-neutral-600 dark:text-neutral-300;
 }
 
-/* Minimal details */
+/* Header — bold line + glass */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(12px) saturate(140%);
+    background: color-mix(in oklab, var(--bg) 75%, transparent);
+    border-bottom: 1px solid
+        color-mix(in oklab, var(--ink-700) 12%, transparent);
+}
+.header::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 4px;
+    background: var(--accent);
+}
+
+/* Buttons */
+.btn {
+    @apply inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-medium transition;
+}
+.btn-primary {
+    background: var(--accent);
+    color: white;
+}
+.btn-primary:hover {
+    filter: saturate(110%) brightness(1.05);
+}
+.btn-ghost {
+    border: 1px solid color-mix(in oklab, var(--ink-700) 25%, transparent);
+}
+.btn-ghost:hover {
+    background: color-mix(in oklab, var(--mist) 25%, transparent);
+}
+
+/* Links */
 .link-underline {
-    background: linear-gradient(currentColor, currentColor) left bottom / 0 2px
-        no-repeat;
+    background: linear-gradient(var(--accent), var(--accent)) left bottom / 0
+        2px no-repeat;
     transition: background-size 0.3s ease;
 }
 .link-underline:hover {
     background-size: 100% 2px;
 }
 
-/* Header glass */
-.header-glass {
-    backdrop-filter: saturate(140%) blur(12px);
-    background: color-mix(in oklab, var(--background) 70%, transparent);
+/* Sections — angled edges (subtle, bold) */
+.section {
+    position: relative;
+}
+.section.angle-top::before,
+.section.angle-bottom::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 80px;
+    pointer-events: none;
+    background: var(--bg);
+    clip-path: polygon(0 0, 100% 100%, 0 100%);
+    opacity: 0.8;
+}
+.section.angle-top::before {
+    top: -79px;
+    transform: scaleY(-1);
+}
+.section.angle-bottom::after {
+    bottom: -79px;
 }
 
-/* Subtle paper texture via gradient */
-.bg-paper {
-    background-image:
+/* Hero — spotlight */
+.hero {
+    position: relative;
+    overflow: hidden;
+    color: var(--paper);
+    background:
         radial-gradient(
-            1000px 600px at -10% -10%,
-            rgba(124, 58, 45, 0.06) 0%,
-            transparent 40%
+            1000px 600px at 20% -10%,
+            color-mix(in oklab, var(--accent) 55%, transparent),
+            transparent 60%
         ),
-        radial-gradient(
-            1000px 600px at 110% 0%,
-            rgba(180, 83, 9, 0.05) 0%,
-            transparent 45%
-        );
+        linear-gradient(135deg, #2d3142 0%, #4f5d75 60%, #2d3142 100%);
+}
+.hero a {
+    color: #fff;
 }
 
-/* Cards */
+/* Cards with subtle tilt */
 .card {
     @apply rounded-2xl border shadow-sm transition;
+    background: color-mix(in oklab, var(--paper) 85%, transparent);
 }
 .card {
-    @apply border-neutral-200/70 bg-white/70 dark:border-neutral-800/80 dark:bg-neutral-900/60;
+    border-color: color-mix(in oklab, var(--ink-700) 15%, transparent);
 }
 .card:hover {
-    @apply shadow-md;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Tilt hover */
+.tilt {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+.tilt > * {
+    transform: translateZ(0);
+    transition: transform 0.15s ease;
+}
+.tilt:hover > * {
+    transform: translateZ(10px);
 }
 
 /* Reveal (scroll) */
 .reveal {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(18px);
     transition:
         opacity 0.6s ease,
         transform 0.6s ease;
@@ -93,4 +176,17 @@ body {
 .reveal.in {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Utility */
+.prose {
+    max-width: 70ch;
+}
+.text-muted-foreground {
+    color: color-mix(in oklab, currentColor 60%, transparent);
+}
+
+/* Footer band */
+.footer-band {
+    border-top: 4px solid var(--accent);
 }

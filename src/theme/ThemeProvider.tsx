@@ -1,4 +1,4 @@
-// [TheatreComedie-Vite] #3
+// [TheatreComedie-Vite-Bold] #3
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
 type Ctx = { theme: "light" | "dark"; toggle: () => void };

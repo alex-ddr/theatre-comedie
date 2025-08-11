@@ -1,21 +1,25 @@
-// [TheatreComedie-Vite] #3
+// [TheatreComedie-Vite-Bold] #3
 import siteJson from "@content/site.json";
-import highlightsJson from "@content/highlights.json";
-import playsJson from "@content/plays.json";
 import distributionJson from "@content/distribution.json";
 import theyPlayedJson from "@content/they-played.json";
 import authorJson from "@content/author.json";
 import type { Play, Site, DistributionEntry } from "./types";
 
-export const site: Site = siteJson as Site;
-export const highlights = {
-    tagline: (highlightsJson as any).tagline as string,
-};
+// Eager import of all plays JSON files
+const playModules = import.meta.glob("../content/plays/*.json", {
+    eager: true,
+});
+const plays: Play[] = Object.values(playModules).map(
+    (m: any) => (m.default ?? m) as Play,
+);
 
-export const plays: Play[] = (playsJson as any[]).map((p) => ({
-    poster: "/posters/placeholder.jpg",
-    ...p,
-}));
+// Sort alphabetically by title
+plays.sort((a, b) => a.title.localeCompare(b.title, "fr"));
+
+// Exports
+export { plays };
+
+export const site: Site = siteJson as Site;
 
 export const distribution: DistributionEntry[] =
     distributionJson as DistributionEntry[];

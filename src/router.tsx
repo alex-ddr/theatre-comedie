@@ -1,4 +1,4 @@
-// [TheatreComedie-Vite] #3
+// [TheatreComedie-Vite-Bold] #3
 import type { RouteObject } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";

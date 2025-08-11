@@ -1,4 +1,4 @@
-// [TheatreComedie-Vite] #3
+// [TheatreComedie-Vite-Bold] #3
 import { useEffect, useRef } from "react";
 
 export function useReveal(threshold = 0.16) {

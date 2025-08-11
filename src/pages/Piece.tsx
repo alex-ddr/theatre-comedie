@@ -1,4 +1,4 @@
-// [TheatreComedie-Vite] #3
+// [TheatreComedie-Vite-Bold] #3
 import { useParams, Link } from "react-router-dom";
 import { plays } from "@lib/content";
 
@@ -36,35 +36,61 @@ export default function Piece() {
 
             <h1 className="text-3xl font-bold tracking-tight">{play.title}</h1>
             <p className="text-muted-foreground mt-1 text-sm">
-                {play.genre} • {play.duration} • Distribution:{" "}
+                {play.genre}
+                {play.duration ? ` • ${play.duration}` : ""} • Distribution:{" "}
                 {play.cast.join(", ")}
             </p>
 
-            <section className="prose prose-neutral dark:prose-invert mt-6">
-                <h2>Synopsis</h2>
-                <p>{play.synopsis}</p>
+            <div className="mt-6 flex gap-3">
+                {play.download?.url && (
+                    <a
+                        href={play.download.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="btn btn-primary"
+                    >
+                        Télécharger la pièce (PDF)
+                    </a>
+                )}
+                <Link to="/pieces" className="btn btn-ghost">
+                    Retour aux pièces
+                </Link>
+            </div>
 
-                {!!play.notes?.length && (
+            <section className="prose prose-neutral dark:prose-invert mt-8">
+                {play.accroche && (
+                    <blockquote>
+                        <p>{play.accroche}</p>
+                    </blockquote>
+                )}
+                {play.sections?.debut && (
                     <>
-                        <h2>Notes de mise en scène</h2>
+                        <h2>Le début de la pièce</h2>
+                        <p>{play.sections.debut}</p>
+                    </>
+                )}
+                {play.sections?.atouts && (
+                    <>
+                        <h2>Les atouts de la pièce</h2>
+                        <p>{play.sections.atouts}</p>
+                    </>
+                )}
+                {play.sections?.theme && (
+                    <>
+                        <h2>Le thème</h2>
+                        <p>{play.sections.theme}</p>
+                    </>
+                )}
+                {play.notes?.length ? (
+                    <>
+                        <h2>Notes</h2>
                         <ul>
                             {play.notes.map((n, i) => (
                                 <li key={i}>{n}</li>
                             ))}
                         </ul>
                     </>
-                )}
-
-                {play.download?.url && (
-                    <a
-                        href={play.download.url}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-block rounded-lg border px-3 py-2 no-underline hover:bg-neutral-50 dark:border-neutral-700 dark:hover:bg-neutral-800"
-                    >
-                        Télécharger l’extrait (.pdf)
-                    </a>
-                )}
+                ) : null}
             </section>
         </main>
     );

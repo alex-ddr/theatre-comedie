@@ -1,4 +1,4 @@
-// [TheatreComedie-Vite] #3
+// [TheatreComedie-Vite-Bold] #3
 import { useState } from "react";
 import { site } from "@lib/content";
 
@@ -28,25 +28,23 @@ export default function Contact() {
                     name="name"
                     required
                     placeholder="Votre nom"
-                    className="w-full rounded-xl border px-4 py-2 dark:border-neutral-700"
+                    className="w-full rounded-full border px-5 py-2 dark:border-neutral-700"
                 />
                 <input
                     name="email"
                     type="email"
                     required
                     placeholder="Votre email"
-                    className="w-full rounded-xl border px-4 py-2 dark:border-neutral-700"
+                    className="w-full rounded-full border px-5 py-2 dark:border-neutral-700"
                 />
                 <textarea
                     name="message"
                     required
                     placeholder="Votre message"
                     rows={5}
-                    className="w-full rounded-xl border px-4 py-2 dark:border-neutral-700"
+                    className="w-full rounded-2xl border px-4 py-2 dark:border-neutral-700"
                 />
-                <button className="rounded-xl bg-[color:var(--brand-1)] px-4 py-2 text-white">
-                    Envoyer
-                </button>
+                <button className="btn btn-primary">Envoyer</button>
                 {status === "ok" && (
                     <p className="text-sm text-green-600">Message envoyé.</p>
                 )}

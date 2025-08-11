@@ -1,14 +1,12 @@
-// [TheatreComedie-Vite] #3
+// [TheatreComedie-Vite-Bold] #3
 import { Link } from "react-router-dom";
 import type { Play } from "@lib/types";
-import { useReveal } from "@hooks/useReveal";
 
 export default function PlayCard({ p }: { p: Play }) {
-    const ref = useReveal();
     return (
-        <li ref={ref as any} className="card overflow-hidden">
-            <article>
-                <div className="relative aspect-[16/9] w-full overflow-hidden bg-neutral-200/50 dark:bg-neutral-800/50">
+        <li className="tilt">
+            <article className="card overflow-hidden">
+                <div className="relative aspect-[16/9] w-full overflow-hidden bg-[var(--mist)]">
                     <img
                         src={p.poster || "/posters/placeholder.jpg"}
                         alt={p.title}
@@ -18,30 +16,33 @@ export default function PlayCard({ p }: { p: Play }) {
                             (e.currentTarget.src = "/posters/placeholder.jpg")
                         }
                     />
+                    <div className="absolute top-3 right-3 rounded-full bg-[var(--accent)] px-3 py-1 text-xs font-medium text-white shadow">
+                        {p.duration || "—"}
+                    </div>
                 </div>
                 <div className="p-5">
                     <header className="mb-2">
                         <h3 className="text-lg font-semibold">{p.title}</h3>
                         <p className="text-muted-foreground text-sm">
-                            {p.genre} • {p.duration} • {p.cast.join(" / ")}
+                            {p.genre} • {p.cast.join(" / ")}
                         </p>
                     </header>
-                    <p className="line-clamp-3 text-sm">{p.synopsis}</p>
+                    {p.accroche && <p className="text-sm">{p.accroche}</p>}
                     <footer className="mt-4 flex items-center justify-between">
                         <Link
                             to={`/pieces/${p.slug}`}
-                            className="rounded-lg border px-3 py-1.5 text-sm hover:bg-neutral-50 dark:border-neutral-700 dark:hover:bg-neutral-800"
+                            className="btn btn-ghost"
                         >
                             Détails
                         </Link>
                         {p.download?.url && (
                             <a
                                 href={p.download.url}
+                                className="link-underline text-sm"
                                 target="_blank"
                                 rel="noreferrer"
-                                className="link-underline text-sm"
                             >
-                                Extrait PDF
+                                Télécharger PDF
                             </a>
                         )}
                     </footer>

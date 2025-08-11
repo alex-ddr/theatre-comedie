@@ -1,4 +1,4 @@
-// [TheatreComedie-Vite] #3
+// [TheatreComedie-Vite-Bold] #3
 import { theyPlayed } from "@lib/content";
 
 export default function IlsOntJoue() {

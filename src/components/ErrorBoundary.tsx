@@ -1,4 +1,4 @@
-// [TheatreComedie-Vite] #3
+// [TheatreComedie-Vite-Bold] #3
 import React from "react";
 
 type State = { hasError: boolean; error?: Error };

@@ -1,4 +1,4 @@
-// [TheatreComedie-Vite] #3
+// [TheatreComedie-Vite-Bold] #3
 import { distribution } from "@lib/content";
 
 export default function ParDistribution() {
@@ -10,9 +10,9 @@ export default function ParDistribution() {
             <p className="text-muted-foreground mb-6 text-sm">
                 Choisissez en fonction de votre distribution.
             </p>
-            <div className="overflow-x-auto rounded-2xl border dark:border-neutral-800">
+            <div className="overflow-x-auto rounded-2xl border">
                 <table className="min-w-full text-sm">
-                    <thead className="bg-neutral-50 dark:bg-neutral-900">
+                    <thead style={{ background: "var(--mist)" }}>
                         <tr>
                             <th className="px-4 py-2 text-left">Femmes</th>
                             <th className="px-4 py-2 text-left">Hommes</th>

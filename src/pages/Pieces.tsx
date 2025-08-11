@@ -1,4 +1,4 @@
-// [TheatreComedie-Vite] #3
+// [TheatreComedie-Vite-Bold] #3
 import PlayCard from "@components/PlayCard";
 import { plays } from "@lib/content";
 import { useMemo, useState } from "react";
@@ -9,7 +9,7 @@ export default function Pieces() {
 
     const genres = useMemo(() => {
         const g = new Set(plays.map((p) => p.genre));
-        return Array.from(g).sort();
+        return Array.from(g).sort((a, b) => a.localeCompare(b, "fr"));
     }, []);
 
     const filtered = useMemo(() => {
@@ -19,8 +19,8 @@ export default function Pieces() {
             const okSearch =
                 !lower ||
                 p.title.toLowerCase().includes(lower) ||
-                p.synopsis.toLowerCase().includes(lower) ||
-                p.tags.some((t) => t.toLowerCase().includes(lower));
+                p.synopsis?.toLowerCase().includes(lower) ||
+                p.tags?.some((t) => t.toLowerCase().includes(lower));
             return okGenre && okSearch;
         });
     }, [q, genre]);
@@ -36,12 +36,12 @@ export default function Pieces() {
                     value={q}
                     onChange={(e) => setQ(e.target.value)}
                     placeholder="Rechercher une pièce, un thème…"
-                    className="w-full rounded-xl border px-4 py-2 sm:max-w-sm dark:border-neutral-700"
+                    className="w-full rounded-full border px-5 py-2 sm:max-w-sm dark:border-neutral-700"
                 />
                 <select
                     value={genre}
                     onChange={(e) => setGenre(e.target.value)}
-                    className="w-full rounded-xl border px-4 py-2 sm:w-auto dark:border-neutral-700"
+                    className="w-full rounded-full border px-5 py-2 sm:w-auto dark:border-neutral-700"
                 >
                     <option value="">Tous les genres</option>
                     {genres.map((g) => (
