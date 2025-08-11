@@ -1,9 +1,10 @@
-// [theatre-comedie-vite-ts] #1
+// [theatre-comedie-vite-ts] #2
 import React from "react";
 import { motion } from "framer-motion";
-import BlurBlob from "@components/BlurBlob";
-import PlayCard from "@components/PlayCard";
-import { getFeatured, getRecent } from "@lib/content";
+import BlurBlob from "@/components/BlurBlob";
+import PlayCardInline from "@/components/PlayCardInline";
+import SectionIntro from "@/components/SectionIntro";
+import { getFeatured, getRecent } from "@/lib/content";
 
 export default function Home() {
     const featured = getFeatured();
@@ -21,47 +22,41 @@ export default function Home() {
                         Téléchargez les débuts de pièce, découvrez la
                         distribution et l’esprit de chaque texte.
                     </p>
-                    <div className="mt-6 flex justify-center gap-3">
-                        <a href="/#appreciees" className="btn-primary">
-                            Les plus appréciées
-                        </a>
-                        <a href="/#recentes" className="btn-primary">
-                            Les plus récentes
-                        </a>
-                    </div>
                 </div>
             </section>
 
             <section id="appreciees" className="mx-auto max-w-6xl px-4 py-8">
-                <h2 className="gradient-text mb-4 text-2xl font-semibold">
-                    Les plus appréciées
-                </h2>
+                <SectionIntro
+                    title="Les plus appréciées"
+                    subtitle={`${featured.length} pièces sélectionnées`}
+                />
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
-                    className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+                    className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2"
                 >
                     {featured.map((p) => (
-                        <PlayCard key={p.slug} play={p} />
+                        <PlayCardInline key={p.slug} play={p} />
                     ))}
                 </motion.div>
             </section>
 
             <section id="recentes" className="mx-auto max-w-6xl px-4 py-8">
-                <h2 className="gradient-text mb-4 text-2xl font-semibold">
-                    Les plus récentes
-                </h2>
+                <SectionIntro
+                    title="Les plus récentes"
+                    subtitle={`${recent.length} nouvelles ou mises à jour`}
+                />
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.1 }}
-                    className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+                    transition={{ duration: 0.5, delay: 0.05 }}
+                    className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2"
                 >
                     {recent.map((p) => (
-                        <PlayCard key={p.slug} play={p} />
+                        <PlayCardInline key={p.slug} play={p} />
                     ))}
                 </motion.div>
             </section>
