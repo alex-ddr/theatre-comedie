@@ -1,3 +1,4 @@
+// [TheatreComedie-Vite] #3
 import { useState } from "react";
 import { site } from "@lib/content";
 
@@ -8,7 +9,6 @@ export default function Contact() {
         e.preventDefault();
         setStatus("idle");
         try {
-            // Ici : branche ton API réelle
             await new Promise((r) => setTimeout(r, 400));
             setStatus("ok");
         } catch {
@@ -20,7 +20,7 @@ export default function Contact() {
         <main className="mx-auto max-w-xl px-4 py-12">
             <h1 className="text-3xl font-bold tracking-tight">Contact</h1>
             <p className="text-muted-foreground mt-2">
-                {site.name} — {site.address}
+                {site.name} — {site.email} — {site.phone}
             </p>
 
             <form onSubmit={onSubmit} className="mt-6 space-y-4">
@@ -44,7 +44,7 @@ export default function Contact() {
                     rows={5}
                     className="w-full rounded-xl border px-4 py-2 dark:border-neutral-700"
                 />
-                <button className="rounded-xl bg-black px-4 py-2 text-white dark:bg-white dark:text-black">
+                <button className="rounded-xl bg-[color:var(--brand-1)] px-4 py-2 text-white">
                     Envoyer
                 </button>
                 {status === "ok" && (

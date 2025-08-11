@@ -1,9 +1,13 @@
+// [TheatreComedie-Vite] #3
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { useTheme } from "@theme/ThemeProvider";
+import FooterLinks from "./FooterLinks";
 
 const nav = [
     { to: "/pieces", label: "Pièces" },
-    { to: "/a-propos", label: "À propos" },
+    { to: "/par-distribution", label: "Par distribution" },
+    { to: "/a-propos", label: "L’auteur" },
+    { to: "/ils-ont-joue", label: "Ils ont joué" },
     { to: "/contact", label: "Contact" },
 ];
 
@@ -11,15 +15,19 @@ export default function Layout() {
     const { theme, toggle } = useTheme();
 
     return (
-        <div className="bg-background text-foreground min-h-screen">
-            <header className="sticky top-0 z-50 border-b backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:border-neutral-800 dark:supports-[backdrop-filter]:bg-neutral-950/50">
+        <div className="bg-paper min-h-screen">
+            <header className="header-glass sticky top-0 z-50 border-b dark:border-neutral-800">
                 <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
                     <Link
                         to="/"
                         className="text-lg font-extrabold tracking-tight"
                     >
-                        <span className="bg-gradient-to-r from-pink-500 via-amber-500 to-sky-500 bg-clip-text text-transparent">
-                            Théâtre & Comédies
+                        <span className="text-[color:var(--brand-1)]">
+                            Théâtre
+                        </span>
+                        <span className="text-neutral-500"> & </span>
+                        <span className="text-[color:var(--brand-2)]">
+                            Comédies
                         </span>
                     </Link>
                     <nav className="flex items-center gap-2 text-sm">
@@ -28,7 +36,7 @@ export default function Layout() {
                                 key={n.to}
                                 to={n.to}
                                 className={({ isActive }) =>
-                                    `rounded-xl px-3 py-1.5 transition ${isActive ? "bg-neutral-900 text-white dark:bg-white dark:text-black" : "hover:bg-neutral-100 dark:hover:bg-neutral-800"}`
+                                    `link-underline rounded-xl px-3 py-1.5 transition ${isActive ? "bg-neutral-900 text-white dark:bg-white dark:text-black" : "hover:bg-neutral-100/60 dark:hover:bg-neutral-800/60"}`
                                 }
                             >
                                 {n.label}
@@ -37,9 +45,9 @@ export default function Layout() {
                         <button
                             aria-label="Basculer le thème"
                             onClick={toggle}
-                            className="ml-2 rounded-xl border px-3 py-1.5 text-xs hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-800"
+                            className="ml-2 rounded-xl border px-3 py-1.5 text-xs hover:bg-neutral-100/60 dark:border-neutral-700 dark:hover:bg-neutral-800/60"
                         >
-                            {theme === "dark" ? "☀︎ Clair" : "☾ Sombre"}
+                            {theme === "dark" ? "☀︎" : "☾"}
                         </button>
                     </nav>
                 </div>
@@ -48,9 +56,12 @@ export default function Layout() {
             <Outlet />
 
             <footer className="text-muted-foreground mt-16 border-t py-10 text-sm dark:border-neutral-800">
-                <div className="mx-auto max-w-6xl px-4">
-                    © {new Date().getFullYear()} Théâtre & Comédies — Tous
-                    droits réservés.
+                <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4">
+                    <FooterLinks />
+                    <div>
+                        © {new Date().getFullYear()} Théâtre & Comédies — Tous
+                        droits réservés.
+                    </div>
                 </div>
             </footer>
         </div>

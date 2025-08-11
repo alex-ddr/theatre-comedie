@@ -1,15 +1,19 @@
 @import "tailwindcss";
 
-/* Thème */
+/* Palette chaleureuse */
 :root {
-    --background: #ffffff;
-    --foreground: #0b0b12;
+    --background: #faf7f2;
+    --foreground: #1c1917;
+    --brand-1: #7c3a2d; /* terre cuite */
+    --brand-2: #b45309; /* ambre */
+    --brand-3: #065f46; /* vert profond */
 }
 .dark {
-    --background: #0b0b12;
-    --foreground: #f5f7fb;
+    --background: #0e0d0b;
+    --foreground: #f5f3ef;
 }
 
+/* Base */
 html,
 body {
     height: 100%;
@@ -17,6 +21,9 @@ body {
 body {
     background: var(--background);
     color: var(--foreground);
+}
+::selection {
+    background: rgba(180, 83, 9, 0.25);
 }
 
 /* Typo & rhythm */
@@ -26,39 +33,62 @@ body {
 .text-muted-foreground {
     color: color-mix(in oklab, currentColor 60%, transparent);
 }
-
-/* Gradients “colorful” */
-.gradient-hero {
-    background:
-        radial-gradient(1000px 400px at -5% -10%, #ff9bd9 0%, transparent 40%),
-        radial-gradient(800px 400px at 110% -10%, #9bffd6 0%, transparent 40%),
-        linear-gradient(180deg, #0b0b12 0%, #151521 100%);
+.h1 {
+    @apply text-4xl font-extrabold tracking-tight sm:text-5xl;
 }
-.gradient-card {
-    background: linear-gradient(
-        135deg,
-        rgba(255, 196, 0, 0.1),
-        rgba(0, 122, 255, 0.06)
-    );
+.h2 {
+    @apply text-2xl font-semibold tracking-tight;
 }
 
-/* Card hover */
+/* Minimal details */
+.link-underline {
+    background: linear-gradient(currentColor, currentColor) left bottom / 0 2px
+        no-repeat;
+    transition: background-size 0.3s ease;
+}
+.link-underline:hover {
+    background-size: 100% 2px;
+}
+
+/* Header glass */
+.header-glass {
+    backdrop-filter: saturate(140%) blur(12px);
+    background: color-mix(in oklab, var(--background) 70%, transparent);
+}
+
+/* Subtle paper texture via gradient */
+.bg-paper {
+    background-image:
+        radial-gradient(
+            1000px 600px at -10% -10%,
+            rgba(124, 58, 45, 0.06) 0%,
+            transparent 40%
+        ),
+        radial-gradient(
+            1000px 600px at 110% 0%,
+            rgba(180, 83, 9, 0.05) 0%,
+            transparent 45%
+        );
+}
+
+/* Cards */
 .card {
     @apply rounded-2xl border shadow-sm transition;
-    @apply border-neutral-200/70 dark:border-neutral-800/80;
-    @apply bg-white/60 dark:bg-neutral-900/60;
+}
+.card {
+    @apply border-neutral-200/70 bg-white/70 dark:border-neutral-800/80 dark:bg-neutral-900/60;
 }
 .card:hover {
     @apply shadow-md;
 }
 
-/* Simple fade-up animation classes */
+/* Reveal (scroll) */
 .reveal {
     opacity: 0;
     transform: translateY(16px);
     transition:
-        opacity 0.5s ease,
-        transform 0.5s ease;
+        opacity 0.6s ease,
+        transform 0.6s ease;
 }
 .reveal.in {
     opacity: 1;

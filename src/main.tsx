@@ -10,11 +10,11 @@ import ThemeProvider from "./theme/ThemeProvider";
 const router = createBrowserRouter(routes, { basename: "/" });
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-    <React.StrictMode>
-        <ThemeProvider>
-            <ErrorBoundary>
-                <RouterProvider router={router} />
-            </ErrorBoundary>
-        </ThemeProvider>
-    </React.StrictMode>,
+  <React.StrictMode>
+    <ThemeProvider>
+      <ErrorBoundary>
+        <RouterProvider router={router} />
+      </ErrorBoundary>
+    </ThemeProvider>
+  </React.StrictMode>
 );
