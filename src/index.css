@@ -1,0 +1,8 @@
+@import 'tailwindcss';
+
+@layer components {
+  .card {
+    max-width: theme("maxWidth.2xl");
+    margin: theme("spacing.8");
+  }
+}
