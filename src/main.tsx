@@ -1,10 +1,20 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
+// [TheatreComedie-Vite] #3
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import "./index.css";
+import { routes } from "./router";
+import ErrorBoundary from "./components/ErrorBoundary";
+import ThemeProvider from "./theme/ThemeProvider";
 
-createRoot(document.getElementById('root')!).render(
-    <StrictMode>
-        <App />
-    </StrictMode>,
-)
+const router = createBrowserRouter(routes, { basename: "/" });
+
+ReactDOM.createRoot(document.getElementById("root")!).render(
+    <React.StrictMode>
+        <ThemeProvider>
+            <ErrorBoundary>
+                <RouterProvider router={router} />
+            </ErrorBoundary>
+        </ThemeProvider>
+    </React.StrictMode>,
+);
