@@ -1,35 +1,17 @@
-// [TheatreComedie-Vite-Bold] #3
+// [TheatreDynamic] #3
 import siteJson from "@content/site.json";
 import distributionJson from "@content/distribution.json";
 import theyPlayedJson from "@content/they-played.json";
 import authorJson from "@content/author.json";
-import type { Play, Site, DistributionEntry } from "./types";
-
-// Eager import of all plays JSON files
-const playModules = import.meta.glob("../content/plays/*.json", {
-    eager: true,
-});
-const plays: Play[] = Object.values(playModules).map(
-    (m: any) => (m.default ?? m) as Play,
-);
-
-// Sort alphabetically by title
-plays.sort((a, b) => a.title.localeCompare(b.title, "fr"));
-
-// Exports
-export { plays };
-
+import type { Site, DistributionEntry } from "./types";
 export const site: Site = siteJson as Site;
-
 export const distribution: DistributionEntry[] =
     distributionJson as DistributionEntry[];
-
 export const theyPlayed = theyPlayedJson as {
     intro: string;
     body: string;
     links: string[];
 };
-
 export const author = authorJson as {
     bioBlocks: string[];
     headline: string;

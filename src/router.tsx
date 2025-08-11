@@ -1,4 +1,4 @@
-// [TheatreComedie-Vite-Bold] #3
+// [TheatreDynamic] #3
 import type { RouteObject } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
@@ -10,9 +10,7 @@ import ParDistribution from "./pages/ParDistribution";
 import IlsOntJoue from "./pages/IlsOntJoue";
 
 export const routes: RouteObject[] = [
-  {
-    path: "/",
-    element: <Layout />,
+  { path: "/", element: <Layout />,
     children: [
       { index: true, element: <Home /> },
       { path: "pieces", element: <Pieces /> },
@@ -21,7 +19,7 @@ export const routes: RouteObject[] = [
       { path: "par-distribution", element: <ParDistribution /> },
       { path: "ils-ont-joue", element: <IlsOntJoue /> },
       { path: "contact", element: <Contact /> },
-      { path: "*", element: <div className="p-6">404</div> },
-    ],
-  },
+      { path: "*", element: <div className="p-6">404</div> }
+    ]
+  }
 ];

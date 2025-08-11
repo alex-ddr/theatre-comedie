@@ -1,6 +1,7 @@
-// [TheatreComedie-Vite-Bold] #3
+// [TheatreDynamic] #3
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { useTheme } from "@theme/ThemeProvider";
+import { useScrollProgress } from "@hooks/useScrollProgress";
 
 const nav = [
     { to: "/pieces", label: "Pièces" },
@@ -12,10 +13,13 @@ const nav = [
 
 export default function Layout() {
     const { theme, toggle } = useTheme();
-
+    const progress = useScrollProgress();
     return (
         <div className="min-h-screen">
-            <header className="header">
+            <header
+                className="header"
+                style={{ ["--scrollX" as any]: `${progress * 100}%` }}
+            >
                 <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
                     <Link
                         to="/"
@@ -23,8 +27,8 @@ export default function Layout() {
                     >
                         <span
                             style={{
-                                color: "var(--paper)",
-                                background: "var(--ink-900)",
+                                color: "#fff",
+                                background: "var(--ink)",
                                 padding: "2px 8px",
                                 borderRadius: 999,
                             }}
@@ -34,8 +38,8 @@ export default function Layout() {
                         <span className="mx-1 text-neutral-500">/</span>
                         <span
                             style={{
-                                color: "var(--paper)",
-                                background: "var(--accent)",
+                                color: "#fff",
+                                background: "var(--tomato)",
                                 padding: "2px 8px",
                                 borderRadius: 999,
                             }}
@@ -49,7 +53,7 @@ export default function Layout() {
                                 key={n.to}
                                 to={n.to}
                                 className={({ isActive }) =>
-                                    `link-underline rounded-full px-3 py-1.5 transition ${isActive ? "bg-[var(--ink-900)] text-white" : "hover:bg-[color-mix(in oklab, var(--mist) 30%, transparent)]"}`
+                                    `link-underline rounded-full px-3 py-1.5 transition ${isActive ? "bg-[var(--ink)] text-white" : "hover:bg-[color-mix(in oklab, var(--sand) 30%, transparent)]"}`
                                 }
                             >
                                 {n.label}
@@ -65,10 +69,8 @@ export default function Layout() {
                     </nav>
                 </div>
             </header>
-
             <Outlet />
-
-            <footer className="footer-band mt-20 py-12 text-sm">
+            <footer className="footer mt-20 py-12 text-sm">
                 <div className="mx-auto max-w-6xl px-4 text-neutral-600 dark:text-neutral-300">
                     © {new Date().getFullYear()} Théâtre & Comédies — Tous
                     droits réservés.

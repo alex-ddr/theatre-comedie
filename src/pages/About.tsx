@@ -1,6 +1,5 @@
-// [TheatreComedie-Vite-Bold] #3
+// [TheatreDynamic] #3
 import { author } from "@lib/content";
-
 export default function About() {
     return (
         <main className="mx-auto max-w-3xl px-4 py-12">

@@ -1,6 +1,5 @@
-// [TheatreComedie-Vite-Bold] #3
+// [TheatreDynamic] #3
 import { theyPlayed } from "@lib/content";
-
 export default function IlsOntJoue() {
     return (
         <main className="mx-auto max-w-3xl px-4 py-12">

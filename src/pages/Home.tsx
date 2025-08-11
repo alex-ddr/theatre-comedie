@@ -1,22 +1,26 @@
-// [TheatreComedie-Vite-Bold] #3
-import Hero from "@components/Hero";
-import PlayCard from "@components/PlayCard";
-import { plays } from "@lib/content";
+/* [TheatreDynamic] #3 */
+import StageHeader from "@components/StageHeader";
+import PlayStrip from "@components/PlayStrip";
+import { plays } from "@lib/plays";
+import { useReveal } from "@hooks/useReveal";
 
 export default function Home() {
-    console.log(plays);
+    const refStrip = useReveal();
     return (
         <main>
-            <Hero />
-            <section className="section mx-auto max-w-6xl px-4 py-14">
-                <header className="mb-6 flex items-end justify-between">
-                    <h2 className="h2">À l’affiche</h2>
+            <StageHeader />
+            <section
+                ref={refStrip as any}
+                className="section mx-auto max-w-6xl px-4 py-14"
+            >
+                <header className="mb-6">
+                    <h2 className="h2">Programmation</h2>
+                    <p className="mt-2 max-w-prose text-neutral-700 dark:text-neutral-300">
+                        Une sélection vivante : survolez pour révéler les
+                        détails, cliquez pour plonger dans la pièce.
+                    </p>
                 </header>
-                <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                    {plays.slice(0, 9).map((p) => (
-                        <PlayCard key={p.slug} p={p} />
-                    ))}
-                </ul>
+                <PlayStrip items={plays.slice(0, 12)} />
             </section>
         </main>
     );

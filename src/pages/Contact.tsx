@@ -1,10 +1,8 @@
-// [TheatreComedie-Vite-Bold] #3
+// [TheatreDynamic] #3
 import { useState } from "react";
 import { site } from "@lib/content";
-
 export default function Contact() {
     const [status, setStatus] = useState<"idle" | "ok" | "err">("idle");
-
     async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
         setStatus("idle");
@@ -15,14 +13,12 @@ export default function Contact() {
             setStatus("err");
         }
     }
-
     return (
         <main className="mx-auto max-w-xl px-4 py-12">
             <h1 className="text-3xl font-bold tracking-tight">Contact</h1>
-            <p className="text-muted-foreground mt-2">
+            <p className="mt-2 text-neutral-600 dark:text-neutral-300">
                 {site.name} — {site.email} — {site.phone}
             </p>
-
             <form onSubmit={onSubmit} className="mt-6 space-y-4">
                 <input
                     name="name"
