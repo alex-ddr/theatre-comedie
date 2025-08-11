@@ -1,16 +1,27 @@
+// [theatre-comedie-vite-ts] #1
 {
-    "files": [],
-    "references": [
-        { "path": "./tsconfig.app.json" },
-        { "path": "./tsconfig.node.json" }
-    ],
     "compilerOptions": {
+        "target": "ES2020",
+        "useDefineForClassFields": true,
+        "lib": ["ES2020", "DOM", "DOM.Iterable"],
+        "module": "ESNext",
+        "skipLibCheck": true,
+        "moduleResolution": "bundler",
         "resolveJsonModule": true,
-        "esModuleInterop": true,
         "allowSyntheticDefaultImports": true,
         "jsx": "react-jsx",
+        "noEmit": true,
+        "types": ["vite/client"],
         "strict": true,
         "baseUrl": ".",
-        "paths": { "@*": ["src/*"] }
-    }
+        "paths": {
+            "@*": ["src/*"],
+            "@components/*": ["src/components/*"],
+            "@lib/*": ["src/lib/*"],
+            "@pages/*": ["src/pages/*"],
+            "@styles/*": ["src/styles/*"],
+            "@types/*": ["src/types/*"]
+        }
+    },
+    "include": ["src"]
 }

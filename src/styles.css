@@ -1,7 +1,19 @@
 @import "tailwindcss";
 
-html {
-    scroll-behavior: smooth;
+/* Global gradient fog */
+:root {
+  --glow: 0 0 200px rgba(255, 128, 0, 0.2);
 }
 
-/* Utilise les classes Tailwind directement dans tes composants */
+html, body, #root { 
+  height: 100%; 
+}
+
+/* Custom CSS classes - remplace par des classes Tailwind dans tes composants */
+.gradient-text {
+  background: linear-gradient(90deg, #ff7a18, #ff006e, #ffb3c1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
