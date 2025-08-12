@@ -1,22 +1,35 @@
 // [theatre-comedie-vite-ts] #1
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
-  return (
-    <footer className="mt-16 border-t border-white/10">
-      <div className="max-w-6xl mx-auto px-4 py-10 grid gap-8 sm:grid-cols-2">
-        <div>
-          <h3 className="text-xl font-semibold gradient-text">Théâtre & Comédie</h3>
-          <p className="text-white/70 mt-2">Pièces contemporaines, comédies et intrigues, prêtes à jouer.</p>
-        </div>
-        <div className="flex gap-6 sm:justify-end">
-          <Link to="/pieces" className="hover:underline">Pièces</Link>
-          <Link to="/auteur" className="hover:underline">Auteur</Link>
-          <Link to="/contact" className="hover:underline">Contact</Link>
-        </div>
-      </div>
-      <div className="text-center text-white/40 text-sm pb-8">© {new Date().getFullYear()} Théâtre & Comédie</div>
-    </footer>
-  )
+    return (
+        <footer className="border-t border-white/10 pt-4">
+            <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:grid-cols-2">
+                <div>
+                    <h3 className="gradient-text text-xl font-semibold">
+                        Théâtre & Comédie
+                    </h3>
+                    <p className="mt-2 text-white/70">
+                        Pièces contemporaines, comédies et intrigues, prêtes à
+                        jouer.
+                    </p>
+                </div>
+                <div className="flex gap-6 text-white/70 sm:justify-end">
+                    <Link to="/pieces" className="hover:underline">
+                        Pièces
+                    </Link>
+                    <Link to="/auteur" className="hover:underline">
+                        Auteur
+                    </Link>
+                    <Link to="/contact" className="hover:underline">
+                        Contact
+                    </Link>
+                </div>
+            </div>
+            <div className="pb-8 text-center text-sm text-white/40">
+                © {new Date().getFullYear()} Théâtre & Comédie
+            </div>
+        </footer>
+    );
 }

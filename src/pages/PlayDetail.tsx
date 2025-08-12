@@ -12,7 +12,7 @@ export default function PlayDetail() {
             <div className="mx-auto max-w-3xl px-4 py-16 text-center">
                 <p className="text-white/70">Pièce introuvable.</p>
                 <Link to="/pieces" className="btn-primary mt-6 inline-block">
-                    Voir toutes les pièces
+                    Voir le catalogue de pièces
                 </Link>
             </div>
         );

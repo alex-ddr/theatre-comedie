@@ -40,6 +40,11 @@ export function getRecent(): Play[] {
         .filter(Boolean);
 }
 
+export function getMostRecent(): Play | undefined {
+    const recent = getRecent();
+    return recent.length > 0 ? recent[0] : undefined;
+}
+
 // ---------- Aggregated content for categories ----------
 
 function parseDurationToMinutes(text?: string): number | undefined {

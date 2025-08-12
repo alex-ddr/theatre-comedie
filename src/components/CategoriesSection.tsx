@@ -27,7 +27,10 @@ export default function CategoriesSection() {
                         `Extraits PDF pour ${s.pdfs}/${s.totalPlays}`,
                         `Genres couverts : ${s.genres.length}`,
                     ]}
-                    cta={{ label: "Voir toutes les pièces", href: "/pieces" }}
+                    cta={{
+                        label: "Voir le catalogue de pièces",
+                        href: "/pieces",
+                    }}
                     delay={0}
                 />
                 <CategoryCard
