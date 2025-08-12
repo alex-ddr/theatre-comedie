@@ -2,6 +2,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import type { Play } from "@/types";
+import Tag from "./Tag";
 
 function Thumb({ poster, title }: { poster?: string; title: string }) {
     const [ok, setOk] = React.useState(true);
@@ -66,22 +67,14 @@ export default function PlayListCompact({
                                 </p>
                             )}
                             <div className="mt-2 flex flex-wrap gap-2 text-xs text-white/80">
-                                {p.genre && (
-                                    <span className="rounded-full border border-pink-300/20 bg-pink-500/10 px-3 py-1 font-medium">
-                                        {p.genre}
-                                    </span>
-                                )}
-                                {p.duration && (
-                                    <span className="rounded-full border border-pink-300/20 bg-pink-500/10 px-3 py-1 font-medium">
-                                        {p.duration}
-                                    </span>
-                                )}
+                                {p.genre && <Tag>{p.genre}</Tag>}
+                                {p.duration && <Tag>{p.duration}</Tag>}
                             </div>
                         </div>
                         {/* Flèche indicatrice */}
                         <svg
                             viewBox="0 0 24 24"
-                            className="h-5 w-5 text-white/50 transition-all duration-300 group-hover:translate-x-1 group-hover:text-pink-400"
+                            className="h-5 w-5 text-white/50 transition-all duration-300 group-hover/card:translate-x-1 group-hover/card:text-pink-400"
                             fill="none"
                             stroke="currentColor"
                             strokeWidth="2"

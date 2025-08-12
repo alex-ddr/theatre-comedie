@@ -1,12 +1,12 @@
 // [theatre-comedie] #11
 import React from "react";
 import Hero from "@/components/Hero";
-import AboutStrip from "@/components/AboutStrip";
 import PlayZigzag from "@/components/PlayZigzag";
 import { getFeatured, getRecent } from "@/lib/content";
 import BlurBlob from "@/components/BlurBlob";
 import PlayListCompact from "@components/PlayListCompact";
 import Footer from "@components/Footer";
+import AuthorBio from "@components/AuthorBio";
 
 export default function Home() {
     const featured = getFeatured();
@@ -21,6 +21,8 @@ export default function Home() {
     return (
         <div className="relative">
             <BlurBlob className="pointer-events-none absolute inset-0 -z-10 overflow-hidden" />
+
+            {/* Hero Section */}
             <Hero
                 title="Comédies de Franck Didier"
                 subtitle="Des histoires vives, prêtes à monter. Lisez un extrait, choisissez votre distribution, lancez la production."
@@ -34,7 +36,8 @@ export default function Home() {
                 }
                 bg={heroBg}
             />
-            {/* Section 1 : zig-zag élégant (pas de scroll horizontal) */}
+
+            {/* Section 1: Les plus appréciées */}
             <div className="relative">
                 <PlayListCompact
                     title="Les plus appréciées"
@@ -42,10 +45,11 @@ export default function Home() {
                     limit={8}
                 />
             </div>
-            {/* Bande intermédiaire auteur (sobre, avec icônes) */}
-            <AboutStrip />
-            {/* Section 2 : même pattern pour la cohérence visuelle */}
-            {/* Effet de blur décoratif sous la cassure */}
+
+            {/* Section 2: Présentation de l'auteur */}
+            <AuthorBio />
+
+            {/* Section 3: Les plus récentes */}
             <div className="relative mt-8">
                 <PlayZigzag title="Les plus récentes" items={featured} />
                 <BlurBlob
@@ -54,6 +58,8 @@ export default function Home() {
                     animation={false}
                 />
             </div>
+
+            {/* Section 4: Call to Action final */}
             <div className="mt-8 flex -translate-y-8 transform justify-center">
                 <div className="group relative">
                     <a
@@ -78,6 +84,8 @@ export default function Home() {
                     </a>
                 </div>
             </div>
+
+            {/* Footer */}
             <Footer />
         </div>
     );

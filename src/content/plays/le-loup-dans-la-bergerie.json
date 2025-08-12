@@ -1,20 +1,18 @@
 {
-  "slug": "le-loup-dans-la-bergerie",
-  "title": "Le loup dans la bergerie",
-  "genre": "Comédie sur le thème de la jalousie",
-  "duration": "environ 1 h 25",
-  "cast": [
-    "3F/1H"
-  ],
-  "accroche": "... elle est jalouse et joueuse, elle va jouer avec le feu mais aussi s’y brûler ...",
-  "sections": {
-    "debut": "Elisa et Alexandre se retrouvent chez eux après une journée de travail. Comme d’habitude leurs retrouvailles sont tendres et amoureuses mais, comme d’habitude aussi, Elisa trouve le moyen d’exprimer sa jalousie à Alexandre.\n\nCe jour-là pourtant, Elisa va encore plus loin : pour faire enfin sa connaissance et pour couper court à tous les doutes qu’elle peut avoir sur les relations qu’entretient Alexandre avec Karine, son ex-petite amie, Elisa le convainc d’organiser, chez eux, un dîner en sa présence.\n\nBonne joueuse, Elisa propose à Alexandre d’inviter également ce même soir, et pour les mêmes raisons, Sacha, son ex-petit ami à elle. Mais à trop vouloir jouer avec le feu… Alexandre et Elisa vont se brûler…",
-    "atouts": "Cette pièce est une comédie à deux dimensions. Les dialogues incisifs, les quiproquos, rebondissements et autres situations amusantes qu’elle comporte lui confèrent le caractère traditionnel de la comédie de boulevard, drôle et légère.\n\nToutefois, la dimension humaine et affective des personnages, chère à son auteur, vient contraster avec la drôlerie ambiante en faisant de cette pièce un tout, teinté à la fois d’humour pimpant et d’émotion.\n\nUne durée raisonnable (moins d’une heure trente), un décor minimaliste, une distribution réduite et majoritairement féminine font de cette pièce un texte idéal pour des troupes d’amateurs ou des compagnies professionnelles itinérantes.",
-    "theme": "Alexandre et Elisa vivent ensemble et leur bonheur serait parfait sans la jalousie maladive d’Elisa... Elle est non seulement jalouse mais également prête à prendre tous les risques pour confondre Alexandre. La jalousie est un vilain défaut ! Surtout lorsque son conjoint est gentil et sincère et que l’on ne cesse de douter de son honnêteté et de sa fidélité. Cette pièce souligne les travers de ce trait de caractère qui, non content d’empoisonner la vie d’un couple, peut conduire la personne qui se sent dupée à élaborer les stratagèmes les plus machiavéliques pour se prouver qu’elle a raison… qu’elle est effectivement trompée. Par la situation que crée la pièce, on réalise que la jalousie conduit immanquablement à un terrible dilemme, à une question d’une incroyable ambiguïté : à l’heure du verdict final, qu’est-ce qui va soulager le plus ? Découvrir que son partenaire est effectivement le plus fidèle des conjoints ou bien la satisfaction de constater que tous les doutes que l’on a pu avoir étaient bien fondés ? Quand tous ces doutes se lèvent, les sentiments les meilleurs et les pires se libèrent…"
-  },
-  "download": {
-    "url": "/pdfs/le-loup-dans-la-bergerie.pdf"
-  },
-  "poster": "/posters/placeholder.jpg",
-  "tags": []
+    "slug": "le-loup-dans-la-bergerie",
+    "title": "Le loup dans la bergerie",
+    "genre": "Comédie sur le thème de la jalousie",
+    "duration": "~ 1h25",
+    "cast": ["3F/1H"],
+    "accroche": "... elle est jalouse et joueuse, elle va jouer avec le feu mais aussi s’y brûler ...",
+    "sections": {
+        "debut": "Elisa et Alexandre se retrouvent chez eux après une journée de travail. Comme d’habitude leurs retrouvailles sont tendres et amoureuses mais, comme d’habitude aussi, Elisa trouve le moyen d’exprimer sa jalousie à Alexandre.\n\nCe jour-là pourtant, Elisa va encore plus loin : pour faire enfin sa connaissance et pour couper court à tous les doutes qu’elle peut avoir sur les relations qu’entretient Alexandre avec Karine, son ex-petite amie, Elisa le convainc d’organiser, chez eux, un dîner en sa présence.\n\nBonne joueuse, Elisa propose à Alexandre d’inviter également ce même soir, et pour les mêmes raisons, Sacha, son ex-petit ami à elle. Mais à trop vouloir jouer avec le feu… Alexandre et Elisa vont se brûler…",
+        "atouts": "Cette pièce est une comédie à deux dimensions. Les dialogues incisifs, les quiproquos, rebondissements et autres situations amusantes qu’elle comporte lui confèrent le caractère traditionnel de la comédie de boulevard, drôle et légère.\n\nToutefois, la dimension humaine et affective des personnages, chère à son auteur, vient contraster avec la drôlerie ambiante en faisant de cette pièce un tout, teinté à la fois d’humour pimpant et d’émotion.\n\nUne durée raisonnable (moins d’une heure trente), un décor minimaliste, une distribution réduite et majoritairement féminine font de cette pièce un texte idéal pour des troupes d’amateurs ou des compagnies professionnelles itinérantes.",
+        "theme": "Alexandre et Elisa vivent ensemble et leur bonheur serait parfait sans la jalousie maladive d’Elisa... Elle est non seulement jalouse mais également prête à prendre tous les risques pour confondre Alexandre. La jalousie est un vilain défaut ! Surtout lorsque son conjoint est gentil et sincère et que l’on ne cesse de douter de son honnêteté et de sa fidélité. Cette pièce souligne les travers de ce trait de caractère qui, non content d’empoisonner la vie d’un couple, peut conduire la personne qui se sent dupée à élaborer les stratagèmes les plus machiavéliques pour se prouver qu’elle a raison… qu’elle est effectivement trompée. Par la situation que crée la pièce, on réalise que la jalousie conduit immanquablement à un terrible dilemme, à une question d’une incroyable ambiguïté : à l’heure du verdict final, qu’est-ce qui va soulager le plus ? Découvrir que son partenaire est effectivement le plus fidèle des conjoints ou bien la satisfaction de constater que tous les doutes que l’on a pu avoir étaient bien fondés ? Quand tous ces doutes se lèvent, les sentiments les meilleurs et les pires se libèrent…"
+    },
+    "download": {
+        "url": "/pdfs/le-loup-dans-la-bergerie.pdf"
+    },
+    "poster": "/posters/placeholder.jpg",
+    "tags": []
 }

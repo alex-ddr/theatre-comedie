@@ -1,21 +1,18 @@
 {
-  "slug": "ca-sent-le-sapin",
-  "title": "Ça sent le sapin !",
-  "genre": "Comédie sociale",
-  "duration": "environ 1 h 30",
-  "cast": [
-    "3, 4, 5 ou 6 comédiennes",
-    "0, 1, 2, 3 ou 4 comédiens"
-  ],
-  "accroche": "À la rencontre d’une maison de repos qui ne sera pas de tout repos",
-  "sections": {
-    "debut": "Mado, veuve retraitée de 65 ans environ, est accompagnée par ses enfants dans une maison de repos pour une convalescence après une alerte cardiaque. Elle doit partager sa chambre avec une vieille dame qui lui réserve un accueil des plus frileux.\nMalgré tout, elle va rapidement prendre goût à la vie conviviale des Chênes Blancs, avec la complicité de quelques-unes de ses compagnes d’infortune.\nQuant à ses enfants, étaient-ils animés de si bonnes intentions en la plaçant aux Chênes Blancs ?",
-    "atouts": "Cette pièce, à la fois drôle et émouvante, propose une distribution très féminine qui devrait convenir à bon nombre de troupes.\nElle permet de sortir des décors traditionnels type salon pour se dérouler dans la chambre de deux vieilles dames dans une maison de repos de bonne qualité.\nLes auteurs ont voulu créer des personnages humains et attachants… tant par leurs grandes qualités de cœur que par leurs gros défauts.",
-    "theme": "L’action se déroule dans la maison de repos des Chênes Blancs.\nMado, jeune retraitée, y est placée pour un mois, sur le conseil de ses enfants, à la veille des fêtes de Noël, après un petit accident cardiaque.\nC’est l’ambiance de cette maison de repos que la pièce va permettre de pénétrer. Mado y connaîtra des coups bas mais aussi de vrais moments de bonheur et de convivialité avec ses nouvelles amies pensionnaires.\nLes auteurs portent un regard plein de tendresse sur ces mamies « normales » mais également souvent « rebelles »."
-  },
-  "download": {
-    "url": "/pdfs/ca-sent-le-sapin.pdf"
-  },
-  "poster": "/posters/placeholder.jpg",
-  "tags": []
+    "slug": "ca-sent-le-sapin",
+    "title": "Ça sent le sapin !",
+    "genre": "Comédie sociale",
+    "duration": "~ 1h30",
+    "cast": ["3, 4, 5 ou 6 comédiennes", "0, 1, 2, 3 ou 4 comédiens"],
+    "accroche": "À la rencontre d’une maison de repos qui ne sera pas de tout repos",
+    "sections": {
+        "debut": "Mado, veuve retraitée de 65 ans ~, est accompagnée par ses enfants dans une maison de repos pour une convalescence après une alerte cardiaque. Elle doit partager sa chambre avec une vieille dame qui lui réserve un accueil des plus frileux.\nMalgré tout, elle va rapidement prendre goût à la vie conviviale des Chênes Blancs, avec la complicité de quelques-unes de ses compagnes d’infortune.\nQuant à ses enfants, étaient-ils animés de si bonnes intentions en la plaçant aux Chênes Blancs ?",
+        "atouts": "Cette pièce, à la fois drôle et émouvante, propose une distribution très féminine qui devrait convenir à bon nombre de troupes.\nElle permet de sortir des décors traditionnels type salon pour se dérouler dans la chambre de deux vieilles dames dans une maison de repos de bonne qualité.\nLes auteurs ont voulu créer des personnages humains et attachants… tant par leurs grandes qualités de cœur que par leurs gros défauts.",
+        "theme": "L’action se déroule dans la maison de repos des Chênes Blancs.\nMado, jeune retraitée, y est placée pour un mois, sur le conseil de ses enfants, à la veille des fêtes de Noël, après un petit accident cardiaque.\nC’est l’ambiance de cette maison de repos que la pièce va permettre de pénétrer. Mado y connaîtra des coups bas mais aussi de vrais moments de bonheur et de convivialité avec ses nouvelles amies pensionnaires.\nLes auteurs portent un regard plein de tendresse sur ces mamies « normales » mais également souvent « rebelles »."
+    },
+    "download": {
+        "url": "/pdfs/ca-sent-le-sapin.pdf"
+    },
+    "poster": "/posters/placeholder.jpg",
+    "tags": []
 }

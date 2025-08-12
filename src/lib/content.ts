@@ -49,7 +49,7 @@ export function getMostRecent(): Play | undefined {
 
 function parseDurationToMinutes(text?: string): number | undefined {
     if (!text) return;
-    // e.g. "environ 1 h 40"
+    // e.g. "~ 1h40"
     const m = text.replace(/heures?/, "h").match(/(\d+)\s*h\s*(\d+)?/i);
     if (!m) return;
     const h = parseInt(m[1], 10);
