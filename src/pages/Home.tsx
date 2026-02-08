@@ -83,7 +83,7 @@ destinées aux troupes amateures comme aux compagnies professionnelles."
                                                 : "border border-white/20 bg-white/5 text-white/60 hover:bg-white/10"
                                         }`}
                                     >
-                                        Tous
+                                        Peu importe
                                     </button>
                                     <button
                                         onClick={() => {
@@ -151,7 +151,7 @@ destinées aux troupes amateures comme aux compagnies professionnelles."
                                                 : "border border-white/20 bg-white/5 text-white/60 hover:bg-white/10"
                                         }`}
                                     >
-                                        Tous
+                                        Peu importe
                                     </button>
                                     <button
                                         onClick={() => {
