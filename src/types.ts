@@ -1,15 +1,20 @@
-// [theatre-comedie-vite-ts] #1
 export type Play = {
   slug: string
   title: string
   genre?: string
   duration?: string
-  cast?: string[]
+  distributions?: Array<{
+    total: number
+    h: number
+    f: number
+  }>
   accroche?: string
   sections?: Record<string, string>
   download?: { url: string }
   poster?: string
   tags?: string[]
+  youtube?: string
+  cast?: string[];
 }
 
 export type Highlights = {

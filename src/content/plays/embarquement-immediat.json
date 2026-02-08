@@ -1,0 +1,35 @@
+{
+    "slug": "embarquement-immediat",
+    "title": "Embarquement immédiat !",
+    "genre": "Comédie sociale",
+    "duration": "~ 1h30",
+    "distributions": [
+        {
+            "total": 9,
+            "h": 4,
+            "f": 5
+        },
+        {
+            "total": 9,
+            "h": 5,
+            "f": 4
+        },
+        {
+            "total": 9,
+            "h": 3,
+            "f": 6
+        }
+    ],
+    "accroche": "S'attend-on à vivre cela dans le salon VIP d'un aéroport ?",
+    "sections": {
+        "résumé": "Dans le salon VIP d’un aéroport, les voyageurs attendent leur embarquement en toute tranquillité jusqu’à ce que débarque un couple hors normes qui va très vite transformer le salon en un véritable enfer. Sans compter un petit génie de l’informatique qui s’introduira dans le système informatique de l’aéroport pour créer un panne électrique générale dans le salon, faisant de ses occupants un groupe de naufragés du Terminal B… le tout dans une ambiance explosive…",
+        "atouts": "Pour les troupes qui en ont assez de jouer des pièces dont le décor unique est le sempiternel salon avec canapé et table, je propose un lieu et un décor originaux : le salon VIP d’un aéroport. La pièce présente, de plus, l’originalité de devoir se dérouler pendant quelques minutes dans l’obscurité (presque) totale.\nUne interaction importante sera également requise avec la régie-son, véritable 10ème personnage de la pièce, qui devra envoyer régulièrement les annonces d’embarquement ou de sécurité de l’aéroport (annonces sonores fournies si besoin).",
+        "theme": "Comme toutes les pièces de mon répertoire, cette pièce se veut une pièce comique (voire très… je l’espère).Cette pièce est ce que l’on appelle une pièce chorale c’est-à-dire que tous les rôles sont de vrais rôles, avec un temps de présence sur scène et un volume de texte jamais négligeable pour chacun des comédiens (ce qui n’est pourtant jamais un objectif d’écriture pour moi). J’ai tenté d’ouvrir mon écriture à des personnages « à composer et à creuser » : ils ont bien entendu des traits de caractère et une personnalité très marqués mais chaque comédien pourra par ailleurs trouver une face cachée à son personnage et un grain de folie pour lui donner tout le relief que les situations de la pièce lui permettront de sublimer. Enfin, une telle pièce ne saurait être complète sans une mise en scène audacieuse, pleine de folie et de démesure. Cette mise en scène reposera en partie sur la disposition des places assises proposées dans le salon : c’est pourquoi, pour que vous compreniez les situations que j’ai décrites, je me suis attaché à faire une proposition d’implantation. Chaque personnage se verra donc associé à l’une des 12 places assises proposées dans le salon.\nVous pourrez toutefois bien entendu déroger à mes propositions si vous en imaginez d’autres."
+    },
+    "download": {
+        "url": "/pdfs/embarquement-immediat.pdf"
+    },
+    "poster": "/posters/placeholder.jpg",
+    "tags": [],
+    "youtube": "https://youtu.be/_8QfLyrIbA4"
+}

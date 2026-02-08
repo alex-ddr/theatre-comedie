@@ -1,8 +1,26 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* Global gradient fog */
 :root {
     --glow: 0 0 200px rgba(255, 128, 0, 0.2);
+}
+
+html {
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+}
+
+html::-webkit-scrollbar {
+    width: 6px;
+}
+html::-webkit-scrollbar-track {
+    background: transparent;
+}
+html::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 3px;
 }
 
 html,
@@ -11,7 +29,6 @@ body,
     height: 100%;
 }
 
-/* Custom CSS classes - remplace par des classes Tailwind dans tes composants */
 .gradient-text {
     background: linear-gradient(90deg, #ff7a18, #ff006e, #ffb3c1);
     background-size: 200% 200%;
@@ -19,42 +36,16 @@ body,
     -webkit-text-fill-color: transparent;
     background-clip: text;
     color: transparent;
-    transform: translateZ(0);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
 }
 
-/* Solution simple anti-banding */
-.smooth-gradient {
-    background-image: linear-gradient(
-        45deg,
-        transparent 25%,
-        rgba(255, 255, 255, 0.005) 25%,
-        rgba(255, 255, 255, 0.005) 50%,
-        transparent 50%,
-        transparent 75%,
-        rgba(255, 255, 255, 0.005) 75%
-    );
-    background-size: 4px 4px;
+.glass {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
 }
 
-/* Force un rendu de meilleure qualité pour tous les dégradés */
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-    .gradient-text,
-    [class*="bg-gradient"],
-    [style*="gradient"] {
-        transform: translateZ(0);
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        -webkit-perspective: 1000;
-        perspective: 1000;
-    }
-}
-
-/* Classe utilitaire pour améliorer les dégradés existants */
-.anti-banding {
-    background-size: 200% 200%;
-    transform: translateZ(0);
+.btn-primary {
+    @apply rounded-full bg-gradient-to-r from-orange-500 via-pink-500 to-rose-500 px-5 py-2 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-rose-500/30;
 }
 
 .no-scrollbar::-webkit-scrollbar {

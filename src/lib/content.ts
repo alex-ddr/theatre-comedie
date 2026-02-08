@@ -1,24 +1,22 @@
-// [theatre-comedie-vite-ts] #3
 import type { Play, Highlights, Author } from "@/types";
 
-// Load all plays (JSON) using Vite's glob import
 const playModules = import.meta.glob("../content/plays/*.json", {
     eager: true,
     import: "default",
 }) as Record<string, Play>;
 
-// Build an indexed map by slug
 const allPlays: Play[] = Object.values(playModules);
 const bySlug: Record<string, Play> = Object.fromEntries(
     allPlays.map((p) => [p.slug, p]),
 );
 
-// Load highlights and author
 import highlightsJson from "../content/highlights.json";
 import authorJson from "../content/author.json";
+import siteJson from "../content/site.json";
 
 export const highlights = highlightsJson as Highlights;
 export const author = authorJson as Author;
+export const siteData = siteJson;
 
 export function getPlay(slug: string): Play | undefined {
     return bySlug[slug];
@@ -45,11 +43,8 @@ export function getMostRecent(): Play | undefined {
     return recent.length > 0 ? recent[0] : undefined;
 }
 
-// ---------- Aggregated content for categories ----------
-
 function parseDurationToMinutes(text?: string): number | undefined {
     if (!text) return;
-    // e.g. "~ 1h40"
     const m = text.replace(/heures?/, "h").match(/(\d+)\s*h\s*(\d+)?/i);
     if (!m) return;
     const h = parseInt(m[1], 10);
@@ -61,19 +56,16 @@ function parseCastTotal(items?: string[]): number | undefined {
     if (!items || items.length === 0) return;
     for (const it of items) {
         const s = it.toLowerCase();
-        // handle "5F/1H", "2H/3F"
         const ratioMatches = s.match(/(\d+)\s*[fh]\s*\/\s*(\d+)\s*[fh]/i);
         if (ratioMatches) {
             const a = parseInt(ratioMatches[1], 10);
             const b = parseInt(ratioMatches[2], 10);
             return a + b;
         }
-        // handle "6 comédiennes", "4 comédiens", "7 personnages"
         const m = s.match(
             /(\d+)\s*(?:comédien(?:nes?|s)?|acteurs?|personnages?)/i,
         );
         if (m) return parseInt(m[1], 10);
-        // any number fallback
         const any = s.match(/(\d+)/);
         if (any) return parseInt(any[1], 10);
     }
@@ -92,14 +84,12 @@ export type SiteStats = {
 export function getSiteStats(): SiteStats {
     const plays = getAllPlays();
 
-    // Genres
     const genreMap = new Map<string, number>();
     for (const p of plays) {
         if (!p.genre) continue;
         genreMap.set(p.genre, (genreMap.get(p.genre) ?? 0) + 1);
     }
 
-    // Durations (labels) + minutes
     const durationLabel = new Map<string, number>();
     const minutes: number[] = [];
     for (const p of plays) {
@@ -119,7 +109,6 @@ export function getSiteStats(): SiteStats {
               2
         : undefined;
 
-    // Cast totals
     const totals: number[] = [];
     for (const p of plays) {
         const t = parseCastTotal(p.cast);
@@ -130,7 +119,6 @@ export function getSiteStats(): SiteStats {
         ? totals.reduce((a, b) => a + b, 0) / totals.length
         : undefined;
 
-    // PDFs
     const pdfs = plays.filter((p) => p.download?.url).length;
 
     return {
@@ -155,7 +143,6 @@ export function getSiteStats(): SiteStats {
     };
 }
 
-// Helpers to format minutes as "H h MM"
 export function minutesToLabel(m?: number): string | undefined {
     if (m == null) return;
     const h = Math.floor(m / 60);

@@ -3,10 +3,21 @@
     "title": "À fond la caisse",
     "genre": "Comédie sociale et féminine",
     "duration": "~ 1h25",
-    "cast": ["6 comédiennes", "ou 5F/1H"],
+    "distributions": [
+        {
+            "total": 6,
+            "h": 0,
+            "f": 6
+        },
+        {
+            "total": 6,
+            "h": 1,
+            "f": 5
+        }
+    ],
     "accroche": "Dans le vestiaire des caissières d’un supermarché les coups bas pleuvent…",
     "sections": {
-        "debut": "Florence est en période d’essai pour un poste de caissière dans un petit supermarché de quartier. L’accueil qui lui est réservé par ses collègues n’est pas des plus chaleureux. Seule Marie-Lou, la plus ancienne caissière du magasin, pose sur elle un regard maternel et l’aide à découvrir les dessous d’un métier difficile et d’une ambiance parfois bon enfant mais le plus souvent délétère.\nQuant à Huguette l’ambitieuse, Monique la névrosée, Vanessa la bimbo et Maria la cheffe des caissières, elles ne font que compléter un tableau professionnel qui, selon ses aspirations, devrait permettre à Florence de rebondir dans la vie après avoir vécu un drame personnel. Malheureusement pour elle, c’est sans compter sur les coups bas qui pleuvent dans le vestiaire des caissières…",
+        "résumé": "Florence est en période d’essai pour un poste de caissière dans un petit supermarché de quartier. L’accueil qui lui est réservé par ses collègues n’est pas des plus chaleureux. Seule Marie-Lou, la plus ancienne caissière du magasin, pose sur elle un regard maternel et l’aide à découvrir les dessous d’un métier difficile et d’une ambiance parfois bon enfant mais le plus souvent délétère.\nQuant à Huguette l’ambitieuse, Monique la névrosée, Vanessa la bimbo et Maria la cheffe des caissières, elles ne font que compléter un tableau professionnel qui, selon ses aspirations, devrait permettre à Florence de rebondir dans la vie après avoir vécu un drame personnel. Malheureusement pour elle, c’est sans compter sur les coups bas qui pleuvent dans le vestiaire des caissières…",
         "atouts": "Cette pièce convient à une distribution exclusivement féminine et permettra à chaque comédienne d’entrer dans la peau d’un personnage singulier.\nLes dialogues décapants et les situations rebondissantes font de cette pièce un spectacle hilarant, bien que parfois empreint de moments de pure émotion. Pour l’auteur de cette pièce, si l’humour est parfois une fin, il ne peut être porté que par des personnages faits de chair et de sang, en un mot, d’humanité.\nUn décor minimaliste et un texte d’une durée raisonnable (1h20 ~) doivent permettre un montage facile de cette pièce par des troupes amateurs.\nLe thème — Florence est en période d’essai pour un emploi dans un supermarché. Son passé trouble et sa discrétion ne feront qu’attiser les mesquineries et les coups bas dans le vestiaire des caissières… Sur le ton de la comédie drôle et légère, des thèmes néanmoins sérieux sont abordés en filigrane dans cette pièce. Qui n’a jamais connu la situation difficile de tenter d’intégrer un groupe déjà formé ? Quand, de plus, ce groupe est constitué de personnalités très fortes et que l’on est plutôt effacé, l’intégration des premiers jours relève du défi. C’est la difficile expérience que va connaître Florence, l’héroïne de la pièce. Elle y apprendra vite, à ses dépens, combien la mentalité d’un groupe peut être différente de la somme des mentalités des individus qui le forment, et que l’union est le plus souvent la force des faibles. Sous la forme d’une pièce résolument comique, on entre de plain-pied dans les fondements mêmes de la vie en communauté et en bonne intelligence, dans le constat amer que ce sont toujours la méconnaissance de l’autre et le manque de communication qui sont à l’origine de la méfiance ou, pire, de l’intolérance…",
         "theme": "Florence est en période d’essai pour un emploi dans un supermarché. Les mesquineries et les coups bas pleuvent dans le vestiaire des caissières…"
     },
@@ -14,5 +25,6 @@
         "url": "/pdfs/a-fond-la-caisse.pdf"
     },
     "poster": "/posters/placeholder.jpg",
-    "tags": []
+    "tags": [],
+    "youtube": "https://youtu.be/y7dj6mZG_iI"
 }

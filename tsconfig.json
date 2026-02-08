@@ -1,4 +1,3 @@
-// [theatre-comedie-vite-ts] #1
 {
     "compilerOptions": {
         "target": "ES2020",
@@ -15,12 +14,7 @@
         "strict": true,
         "baseUrl": ".",
         "paths": {
-            "@*": ["src/*"],
-            "@components/*": ["src/components/*"],
-            "@lib/*": ["src/lib/*"],
-            "@pages/*": ["src/pages/*"],
-            "@styles/*": ["src/styles/*"],
-            "@types/*": ["src/types/*"]
+            "@/*": ["src/*"]
         }
     },
     "include": ["src"]

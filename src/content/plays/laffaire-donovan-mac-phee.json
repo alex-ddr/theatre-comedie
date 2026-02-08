@@ -3,10 +3,26 @@
     "title": "L’affaire Donovan Mac Phee",
     "genre": "Comédie policière",
     "duration": "~ 1h30",
-    "cast": ["6, 5 ou 4 comédiennes", "3, 4 ou 5 comédiens"],
+    "distributions": [
+        {
+            "total": 9,
+            "h": 4,
+            "f": 5
+        },
+        {
+            "total": 9,
+            "h": 5,
+            "f": 4
+        },
+        {
+            "total": 9,
+            "h": 3,
+            "f": 6
+        }
+    ],
     "accroche": "Une enquête au cœur d’une richissime famille dans l’Amérique des années 80…",
     "sections": {
-        "debut": "C’est Independence Day, en ce 4 juillet 1981 aux États-Unis. C’est cette journée très particulière pour les Américains que Brooke Hopkins, 60 ans, veuve depuis six ans de Clinton, a choisie pour annoncer à ses trois enfants et leurs conjoints qu’elle vient de se remarier en cachette. Elle est l’héritière du célèbre empire Ketchy, la plus célèbre marque de ketchup au monde que lui a laissé son défunt mari.\nCette annonce va sidérer tous les membres de la famille. Cependant, l’annonce de ce mariage clandestin ne sera rien au regard de la stupéfaction que va provoquer la présentation du jeune marié, beau-père des « héritiers » et désormais co-président de l’empire industriel…",
+        "résumé": "C’est Independence Day, en ce 4 juillet 1981 aux États-Unis. C’est cette journée très particulière pour les Américains que Brooke Hopkins, 60 ans, veuve depuis six ans de Clinton, a choisie pour annoncer à ses trois enfants et leurs conjoints qu’elle vient de se remarier en cachette. Elle est l’héritière du célèbre empire Ketchy, la plus célèbre marque de ketchup au monde que lui a laissé son défunt mari.\nCette annonce va sidérer tous les membres de la famille. Cependant, l’annonce de ce mariage clandestin ne sera rien au regard de la stupéfaction que va provoquer la présentation du jeune marié, beau-père des « héritiers » et désormais co-président de l’empire industriel…",
         "atouts": "Empreinte des codes très particuliers des séries télé des années 80, telles que Dallas ou Columbo, cette comédie comporte tous les ingrédients d’une bonne recette théâtrale : argent, amour, pouvoir et trahison.\nElle conjugue humour et suspense et permet aux spectateurs d’endosser, le temps de la pièce, le costume de l’enquêteur chargé de résoudre l’énigme d’un crime des plus singuliers…",
         "theme": "Un crime est commis dans la maison de la célèbre famille Hopkins, à Phoenix, en Arizona.\nDonovan Mac Phee, le jeune époux de Brooke Hopkins, héritière de l’empire familial, est retrouvé mort dans la maison quelques jours seulement après avoir été présenté par Brooke à ses trois enfants et leurs conjoints.\nLe lieutenant Bradigan, en charge de l’enquête, comprendra très vite que chaque membre de cette famille au-dessus de tout soupçon a entretenu des relations « très particulières » avec Donovan avant même sa rencontre avec Brooke, faisant de chacun d’eux des suspects potentiels…"
     },
@@ -14,5 +30,6 @@
         "url": "/pdfs/laffaire-donovan-mac-phee.pdf"
     },
     "poster": "/posters/placeholder.jpg",
-    "tags": []
+    "tags": [],
+    "youtube": "https://youtu.be/ZyfaCnB5jsY"
 }
