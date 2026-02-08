@@ -10,6 +10,8 @@ html {
     overflow-y: scroll;
     scrollbar-width: thin;
     scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+    /* Réduit légèrement la taille de base pour les écrans avec zoom système élevé */
+    font-size: clamp(14px, 1vw, 16px);
 }
 
 html::-webkit-scrollbar {

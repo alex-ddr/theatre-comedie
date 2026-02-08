@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Nav from "@/components/layout/Nav";
+import ScrollToTop from "@/components/layout/ScrollToTop";
 import Home from "@/pages/Home";
 import PlayDetail from "@/pages/PlayDetail";
 import TheyPlayed from "@/pages/TheyPlayed";
@@ -13,6 +14,7 @@ export default function App() {
     return (
         <div className="relative min-h-screen flex flex-col">
             <BlurBlob className="pointer-events-none fixed inset-0 z-0 overflow-hidden" />
+            <ScrollToTop />
             <Nav />
             <main className="relative z-10 flex-1">
                 <Routes>

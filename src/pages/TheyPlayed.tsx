@@ -3,7 +3,7 @@ import theyPlayedJson from "@/content/they-played.json";
 type TheyPlayedContent = {
     intro: string;
     body: string;
-    links: string[];
+    locations: string[];
 };
 
 const theyPlayed = theyPlayedJson as TheyPlayedContent;
@@ -34,23 +34,19 @@ export default function TheyPlayed() {
 
             {/* Section liens avec cartes cliquables */}
             <div className="grid gap-4 sm:grid-cols-2">
-                {theyPlayed.links.map((link, i) => {
-                    const country = link
-                        .replace(/^Voir les troupes qui ont joué (en|ailleurs)\s*/i, "")
-                        .replace(/\s*…\s*$/, "")
-                        .trim();
+                {theyPlayed.locations.map((location) => {
                     
                     // Émojis par pays
                     const flagEmoji = 
-                        country.toLowerCase() === "france" ? "🇫🇷" :
-                        country.toLowerCase() === "belgique" ? "🇧🇪" :
-                        country.toLowerCase() === "suisse" ? "🇨🇭" :
-                        "🌍";
+                        location.toLowerCase() === "france" ? "🇫🇷" :
+                        location.toLowerCase() === "belgique" ? "🇧🇪" :
+                        location.toLowerCase() === "suisse" ? "🇨🇭" :
+                        location.toLowerCase() === "ailleurs..." ? "🌍" : "🌍";
 
                     return (
                         <a
-                            key={i}
-                            href={`/pdf/they-played/franckdidier${country.toLowerCase()}.pdf`}
+                            key={location}
+                            href={`/pdf/they-played/franckdidier${location.toLowerCase()}.pdf`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="group relative overflow-hidden rounded-lg border border-pink-500/20 bg-gradient-to-br from-pink-500/10 to-orange-500/5 p-6 backdrop-blur-sm transition-all hover:scale-105 hover:border-pink-500/40 hover:shadow-xl hover:shadow-pink-500/20"
@@ -62,7 +58,7 @@ export default function TheyPlayed() {
                                         Découvrir
                                     </p>
                                     <h3 className="text-xl font-semibold text-white/90 group-hover:text-pink-300">
-                                        {country}
+                                        {location}
                                     </h3>
                                 </div>
                             </div>
