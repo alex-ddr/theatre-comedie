@@ -13,7 +13,10 @@ function Poster({ poster, title }: { poster?: string; title: string }) {
                     src={src}
                     alt={`Affiche – ${title}`}
                     className="h-full w-full object-cover"
+                    width="112"
+                    height="144"
                     loading="lazy"
+                    decoding="async"
                     onError={() => setOk(false)}
                 />
             ) : (

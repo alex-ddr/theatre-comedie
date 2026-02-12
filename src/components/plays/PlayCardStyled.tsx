@@ -23,7 +23,10 @@ export default function PlayCardStyled({ play }: { play: Play }) {
                             src={imageSrc}
                             alt={play.title}
                             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                            width="350"
+                            height="280"
                             loading="lazy"
+                            decoding="async"
                             onError={() => setImgOk(false)}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-[#0b0b12]/100 via-[#0b0b12]/25 to-[#0b0b12]/10 transition-opacity duration-300 group-hover:opacity-70" />

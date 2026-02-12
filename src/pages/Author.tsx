@@ -38,6 +38,10 @@ export default function Author() {
                         src="/img/franck_didier.jpg" 
                         alt="Franck Didier"
                         className="w-full h-auto object-cover mix-blend-screen rounded-lg"
+                        width="350"
+                        height="467"
+                        loading="eager"
+                        decoding="async"
                     />
                     <div className="absolute inset-0 bg-pink-500/30 mix-blend-multiply pointer-events-none rounded-lg"></div>
                 </div>

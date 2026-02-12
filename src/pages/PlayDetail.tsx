@@ -44,7 +44,7 @@ export default function PlayDetail() {
     return (
         <article>
             {/* Bandeau d'image pleine largeur */}
-            <div className="relative h-[500px] w-full overflow-hidden">
+            <div className="relative h-72 w-full overflow-hidden">
                 {/* Bouton play si vidéo disponible - placé en premier pour utiliser peer */}
                 {youtubeId && (
                     <button
@@ -62,6 +62,10 @@ export default function PlayDetail() {
                     src={`/img/${play.slug}.png`}
                     alt={play.title}
                     className="h-full w-full object-cover transition-transform duration-500 peer-hover:scale-110"
+                    width="1200"
+                    height="600"
+                    loading="eager"
+                    decoding="async"
                     onError={(e) => {
                         e.currentTarget.style.display = 'none';
                     }}

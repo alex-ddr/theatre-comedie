@@ -19,7 +19,10 @@ export default function PlayCardImage({ play }: { play: Play }) {
                         src={imageSrc}
                         alt={play.title}
                         className="h-full w-full object-cover"
+                        width="400"
+                        height="400"
                         loading="lazy"
+                        decoding="async"
                         onError={() => setImgOk(false)}
                     />
                 ) : (
