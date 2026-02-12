@@ -60,7 +60,7 @@ export default function Home() {
 destinées aux troupes amateures comme aux compagnies professionnelles."
             />
 
-            <section className="relative bg-[#0b0b12]/75 backdrop-blur-xl">
+            <section className="relative bg-[#0b0b12]/55 backdrop-blur-xl">
                 <div className="mx-auto w-5/6 px-4 py-10">
                     <h2 className="mb-6 text-xl font-semibold text-white/80">
                         Recherche par distribution

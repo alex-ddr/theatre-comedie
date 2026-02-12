@@ -19,7 +19,7 @@ export default function Hero({ title, subtitle }: { title: string; subtitle?: st
             >
                 <path 
     d="M0,60 C360,160 1080,-40 1440,60 L1440,120 L0,120 Z" 
-    fill="rgba(11,11,18,0.75)" 
+    fill="rgba(11,11,18,0.55)" 
 />
             </svg>
         </section>
