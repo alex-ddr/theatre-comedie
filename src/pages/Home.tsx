@@ -54,26 +54,26 @@ export default function Home() {
 destinées aux troupes amateures comme aux compagnies professionnelles."
             />
 
-            <section className="relative bg-[#0b0b12]/55">
-                <div className="mx-auto w-5/6 px-4 py-10">
-                    <div className="mb-16">
-                        <div className="flex flex-col md:flex-row md:items-center md:gap-0 gap-4 flex-wrap">
-                            <div className="flex flex-col mb-2">
+            <section className="relative bg-[#0b0b12]/55 overflow-x-hidden">
+                <div className="mx-auto sm:px-8 py-8 md:py-10 max-w-full w-5/6">
+                    <div className="mb-16 ">
+                        <div className="flex flex-col md:flex-row justify-center">
+                            <div className="flex flex-col mb">
                                 <span className="gradient-text text-lg font-bold text-white/80 mr-4 md:mr-6 whitespace-nowrap flex items-center">
                                 Recherche par distribution :
                                 </span>
-                                <p className="text-xs mt-[-4px] text-white/40">
+                                <p className="text-xs mt-[-2px] mb-2 text-white/40">
                                 (Aucun choix = n'importe quel nombre)
                                 </p>
                             </div>
-                            <div className="flex items-center gap-4 flex-wrap">
+                            <div className="flex items-center gap-4 flex-wrap justify-center w-full">
                                 {/* Hommes */}
                                 <div className="flex items-center justify-center gap-2 bg-white/5 border border-white/10 rounded-lg px-3 py-2 ">
                                     <label className="text-xs font-medium text-white/70 mr-2 whitespace-nowrap">Hommes</label>
                                     <button
                                         onClick={() => setSelectedH([])}
                                         disabled={selectedH.length === 0}
-                                        className={`text-xs underline-offset-2 mr-2 transition-opacity ${
+                                        className={`text-xs underline-offset-2 mr-2 transition-opacity effacer-btn-show ${
                                             selectedH.length === 0
                                                 ? 'opacity-40 cursor-not-allowed text-white/30'
                                                 : 'text-white/50 hover:text-white/80 hover:underline opacity-100'
@@ -112,7 +112,7 @@ destinées aux troupes amateures comme aux compagnies professionnelles."
                                     <button
                                         onClick={() => setSelectedF([])}
                                         disabled={selectedF.length === 0}
-                                        className={`text-xs underline-offset-2 mr-2 transition-opacity ${
+                                        className={`text-xs underline-offset-2 mr-2 transition-opacity effacer-btn-show ${
                                             selectedF.length === 0
                                                 ? 'opacity-40 cursor-not-allowed text-white/30'
                                                 : 'text-white/50 hover:text-white/80 hover:underline opacity-100'

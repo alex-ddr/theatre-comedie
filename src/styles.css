@@ -1,3 +1,9 @@
+/* Affiche le bouton effacer sauf si largeur < 330px */
+@media (max-width: 419px) {
+    .effacer-btn-show {
+        display: none !important;
+    }
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
