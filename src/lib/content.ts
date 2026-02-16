@@ -1,14 +1,15 @@
 import type { Play, Highlights, Author } from "@/types";
 
+// Lazy loading des modules JSON avec cache
 const playModules = import.meta.glob("../content/plays/*.json", {
-    eager: true,
+    eager: false,
     import: "default",
-}) as Record<string, Play>;
+}) as Record<string, () => Promise<Play>>;
 
-const allPlays: Play[] = Object.values(playModules);
-const bySlug: Record<string, Play> = Object.fromEntries(
-    allPlays.map((p) => [p.slug, p]),
-);
+// Cache pour les pièces déjà chargées
+const playCache = new Map<string, Play>();
+let allPlaysCache: Play[] | null = null;
+let bySlugCache: Record<string, Play> | null = null;
 
 import highlightsJson from "../content/highlights.json";
 import authorJson from "../content/author.json";
@@ -18,28 +19,56 @@ export const highlights = highlightsJson as Highlights;
 export const author = authorJson as Author;
 export const siteData = siteJson;
 
-export function getPlay(slug: string): Play | undefined {
-    return bySlug[slug];
+export async function getPlay(slug: string): Promise<Play | undefined> {
+    if (playCache.has(slug)) {
+        return playCache.get(slug);
+    }
+    
+    const modulePath = `../content/plays/${slug}.json`;
+    const loader = playModules[modulePath];
+    
+    if (!loader) return undefined;
+    
+    try {
+        const play = await loader();
+        playCache.set(slug, play);
+        return play;
+    } catch {
+        return undefined;
+    }
 }
 
-export function getAllPlays(): Play[] {
-    return [...allPlays].sort((a, b) => a.title.localeCompare(b.title, "fr"));
+export async function getAllPlays(): Promise<Play[]> {
+    if (allPlaysCache) {
+        return allPlaysCache;
+    }
+    
+    const plays = await Promise.all(
+        Object.values(playModules).map(loader => loader())
+    );
+    
+    allPlaysCache = plays.sort((a, b) => a.title.localeCompare(b.title, "fr"));
+    return allPlaysCache;
 }
 
-export function getFeatured(): Play[] {
-    return (highlights.featured ?? [])
-        .map((slug) => bySlug[slug])
-        .filter(Boolean);
+export async function getFeatured(): Promise<Play[]> {
+    const plays = await Promise.all(
+        (highlights.featured ?? [])
+            .map(slug => getPlay(slug))
+    );
+    return plays.filter(Boolean) as Play[];
 }
 
-export function getRecent(): Play[] {
-    return (highlights.recent ?? [])
-        .map((slug) => bySlug[slug])
-        .filter(Boolean);
+export async function getRecent(): Promise<Play[]> {
+    const plays = await Promise.all(
+        (highlights.recent ?? [])
+            .map(slug => getPlay(slug))
+    );
+    return plays.filter(Boolean) as Play[];
 }
 
-export function getMostRecent(): Play | undefined {
-    const recent = getRecent();
+export async function getMostRecent(): Promise<Play | undefined> {
+    const recent = await getRecent();
     return recent.length > 0 ? recent[0] : undefined;
 }
 

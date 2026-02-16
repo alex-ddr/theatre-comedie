@@ -8,4 +8,19 @@ export default defineConfig({
             "@": "/src",
         },
     },
+    build: {
+        rollupOptions: {
+            output: {
+                manualChunks: {
+                    vendor: ['react', 'react-dom'],
+                    router: ['react-router-dom'],
+                    motion: ['framer-motion']
+                }
+            }
+        },
+        chunkSizeWarningLimit: 1000
+    },
+    optimizeDeps: {
+        include: ['react', 'react-dom', 'react-router-dom', 'framer-motion']
+    }
 });

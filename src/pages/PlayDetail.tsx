@@ -1,13 +1,39 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { getPlay } from "@/lib/content";
 import Tag from "@/components/ui/Tag";
+import type { Play } from "@/types";
 
 export default function PlayDetail() {
     const { slug } = useParams();
-    const play = slug ? getPlay(slug) : undefined;
+    const [play, setPlay] = useState<Play | undefined>();
+    const [loading, setLoading] = useState(true);
     const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
+    useEffect(() => {
+        if (!slug) {
+            setLoading(false);
+            return;
+        }
+        
+        getPlay(slug).then(foundPlay => {
+            setPlay(foundPlay);
+            setLoading(false);
+        });
+    }, [slug]);
+
+    if (loading) {
+        return (
+            <div className="mx-auto max-w-3xl px-4 py-16">
+                <div className="h-72 w-full bg-white/5 animate-pulse rounded-lg mb-8" />
+                <div className="space-y-4">
+                    <div className="h-8 bg-white/5 animate-pulse rounded w-3/4" />
+                    <div className="h-4 bg-white/5 animate-pulse rounded w-1/2" />
+                </div>
+            </div>
+        );
+    }
+    
     if (!play) {
         return (
             <div className="mx-auto max-w-3xl px-4 py-16 text-center">

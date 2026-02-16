@@ -1,6 +1,9 @@
 import { useMemo } from "react";
 import { motion } from "framer-motion";
 
+// Détecter si l'utilisateur préfère des animations réduites
+const prefersReducedMotion = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 type BlobSeed = {
     size: string;
     color: string;
@@ -171,6 +174,7 @@ function buildBlobs() {
 
 export default function BlurBlob({ className, animation = true }: { className?: string; animation?: boolean }) {
     const blobs = useMemo(buildBlobs, []);
+    const shouldAnimate = animation && !prefersReducedMotion;
 
     return (
         <div className={className}>
@@ -178,9 +182,9 @@ export default function BlurBlob({ className, animation = true }: { className?: 
                 <motion.div
                     key={i}
                     className={b.cls}
-                    style={{ ...b.style, willChange: animation ? 'transform, opacity' : 'auto' }}
-                    animate={animation ? { x: b.x, y: b.y, scale: b.scale, opacity: b.opacity } : undefined}
-                    transition={animation ? {
+                    style={{ ...b.style, willChange: shouldAnimate ? 'transform, opacity' : 'auto' }}
+                    animate={shouldAnimate ? { x: b.x, y: b.y, scale: b.scale, opacity: b.opacity } : undefined}
+                    transition={shouldAnimate ? {
                         x: { duration: b.dur, repeat: Infinity, ease: "linear" },
                         y: { duration: b.dur, repeat: Infinity, ease: "linear" },
                         scale: { duration: b.dur, repeat: Infinity, ease: "linear" },

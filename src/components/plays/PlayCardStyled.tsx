@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState, memo } from "react";
 import { Link } from "react-router-dom";
 import type { Play } from "@/types";
 import Tag from "@/components/ui/Tag";
 
-export default function PlayCardStyled({ play }: { play: Play }) {
+const PlayCardStyled = memo(({ play }: { play: Play }) => {
     const [imgOk, setImgOk] = useState(true);
     const imageSrc = `/img/${play.slug}.png`;
     const getDistributionRange = () => {
@@ -17,7 +17,7 @@ export default function PlayCardStyled({ play }: { play: Play }) {
     return (
         <Link
             to={`/pieces/${play.slug}`}
-            className="group glass relative flex h-[280px] transform-gpu flex-col overflow-hidden rounded-3xl transition-all duration-300 hover:scale-[1.02] hover:bg-white/[0.08] hover:shadow-[0_8px_40px_rgba(255,122,24,0.15),0_4px_20px_rgba(255,0,110,0.1)] inset-[1px] hover:ring-0"
+            className="group glass relative flex h-[280px] transform-gpu flex-col overflow-hidden rounded-3xl transition-all duration-300 hover:scale-[1.02] hover:bg-white/[0.08] hover:shadow-[0_8px_40px_rgba(255,122,24,0.15),0_4px_20px_rgba(255,0,110,0.1)] inset-[1px] hover:ring-0 contain-layout"
         >
             {/* Gradient overlay animé */}
             <div className="absolute inset-0 bg-gradient-to-br from-orange-500/0 via-pink-500/0 to-rose-500/0 opacity-0 transition-opacity duration-300 group-hover:opacity-20" />
@@ -69,5 +69,6 @@ export default function PlayCardStyled({ play }: { play: Play }) {
             {/* Bordure lumineuse au hover */}
             <div className="absolute inset-[-1px] rounded-3xl opacity-0 ring-2 ring-inset ring-gradient-to-br ring-orange-500/50  duration-300 group-hover:opacity-100" />
         </Link>
-    );
-}
+);});
+
+export default PlayCardStyled;

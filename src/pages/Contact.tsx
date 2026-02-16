@@ -19,7 +19,6 @@ export default function Contact() {
         const formData = new FormData(e.currentTarget);
         
         const firstName = formData.get('firstName') as string;
-        const lastName = formData.get('lastName') as string;
         const email = formData.get('email') as string;
         const phone = formData.get('phone') as string;
         const messageText = formData.get('message') as string;
@@ -32,7 +31,7 @@ export default function Contact() {
                 },
                 body: JSON.stringify({
                     access_key: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-                    name: `${firstName} ${lastName.toUpperCase()}`,
+                    name: `${firstName}`,
                     email: email,
                     phone: phone,
                     message: `
@@ -117,7 +116,7 @@ ${messageText}`.trim(),
                         )}
 
                         <form className="space-y-6" onSubmit={handleSubmit} onChange={handleFormChange}>
-                            <div className="grid gap-6 md:grid-cols-2">
+                            <div className="grid gap-6 ">
                                 <div>
                                     <label htmlFor="firstName" className="mb-2 block text-sm font-medium text-white/80">
                                         Prénom <span className="text-pink-400">*</span>
@@ -131,19 +130,7 @@ ${messageText}`.trim(),
                                         required
                                     />
                                 </div>
-                                <div>
-                                    <label htmlFor="lastName" className="mb-2 block text-sm font-medium text-white/80">
-                                        Nom <span className="text-pink-400">*</span>
-                                    </label>
-                                    <input
-                                        type="text"
-                                        id="lastName"
-                                        name="lastName"
-                                        className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/40 backdrop-blur-sm transition-colors focus:border-pink-500/50 focus:bg-white/10 focus:outline-none"
-                                        placeholder="Votre nom"
-                                        required
-                                    />
-                                </div>
+                               
                             </div>
 
                             <div className="grid gap-6 md:grid-cols-2">

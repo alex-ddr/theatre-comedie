@@ -1,13 +1,22 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import Hero from "@/components/layout/Hero";
 import { getAllPlays } from "@/lib/content";
 import PlayCardStyled from "@/components/plays/PlayCardStyled";
+import type { Play } from "@/types";
 
 export default function Home() {
-    const allPlays = getAllPlays();
+    const [allPlays, setAllPlays] = useState<Play[]>([]);
+    const [loading, setLoading] = useState(true);
 
     const [selectedH, setSelectedH] = useState<number[]>([]);
     const [selectedF, setSelectedF] = useState<number[]>([]);
+
+    useEffect(() => {
+        getAllPlays().then(plays => {
+            setAllPlays(plays);
+            setLoading(false);
+        });
+    }, []);
 
     const filteredPlays = useMemo(() => {
         return allPlays.filter((play) => {
@@ -138,27 +147,23 @@ destinées aux troupes amateures comme aux compagnies professionnelles."
                         </p>
                     </div>
 
-                    {filteredPlays.length === 0 ? (
+                    {loading ? (
+                        <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                            {[1,2,3,4,5,6].map(i => (
+                                <div key={i} className="h-[280px] rounded-3xl bg-white/5 animate-pulse" />
+                            ))}
+                        </div>
+                    ) : filteredPlays.length === 0 ? (
                         <div className="rounded-lg border border-white/10 bg-white/5 p-8 text-center">
                             <p className="text-lg text-white/60">
                                 Aucune pièce trouvée pour cette distribution.
                             </p>
                         </div>
                     ) : (
-                        <div>
-                            <div className="mb-6 flex items-center justify-between">
-                                <p className="text-white/60">
-                                    {filteredPlays.length} pièce
-                                    {filteredPlays.length > 1 ? "s" : ""} trouvée
-                                    {filteredPlays.length > 1 ? "s" : ""}
-                                </p>
-                                
-                            </div>
-                            <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-                                {filteredPlays.map((p) => (
-                                    <PlayCardStyled key={p.slug} play={p} />
-                                ))}
-                            </div>
+                        <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                            {filteredPlays.map((p) => (
+                                <PlayCardStyled key={p.slug} play={p} />
+                            ))}
                         </div>
                     )}
                 </div>
