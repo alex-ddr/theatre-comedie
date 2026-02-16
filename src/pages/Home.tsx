@@ -57,13 +57,18 @@ destinées aux troupes amateures comme aux compagnies professionnelles."
             <section className="relative bg-[#0b0b12]/55">
                 <div className="mx-auto w-5/6 px-4 py-10">
                     <div className="mb-16">
-                        <div className="flex flex-col md:flex-row md:items-center md:gap-0 gap-4">
-                            <span className="gradient-text text-lg font-bold text-white/80 mr-4 md:mr-6 whitespace-nowrap flex items-center">
-                            Recherche par distribution :
-                            </span>
-                            <div className="flex flex-wrap items-center gap-4 w-full">
+                        <div className="flex flex-col md:flex-row md:items-center md:gap-0 gap-4 flex-wrap">
+                            <div className="flex flex-col mb-2">
+                                <span className="gradient-text text-lg font-bold text-white/80 mr-4 md:mr-6 whitespace-nowrap flex items-center">
+                                Recherche par distribution :
+                                </span>
+                                <p className="text-xs mt-[-4px] text-white/40">
+                                (Aucun choix = n'importe quel nombre)
+                                </p>
+                            </div>
+                            <div className="flex items-center gap-4 flex-wrap">
                                 {/* Hommes */}
-                                <div className="flex-1 flex items-center gap-2 bg-white/5 border border-white/10 rounded-lg px-3 py-2 min-w-[180px]">
+                                <div className="flex items-center justify-center gap-2 bg-white/5 border border-white/10 rounded-lg px-3 py-2 ">
                                     <label className="text-xs font-medium text-white/70 mr-2 whitespace-nowrap">Hommes</label>
                                     <button
                                         onClick={() => setSelectedH([])}
@@ -76,7 +81,7 @@ destinées aux troupes amateures comme aux compagnies professionnelles."
                                     >
                                         Effacer
                                     </button>
-                                    <div className="flex gap-1 flex-wrap">
+                                    <div className="flex gap-1 flex-nowrap">
                                         {[0,1,2,3,4,5,6,7].map((value) => {
                                             const isActive = selectedH.includes(value);
                                             return (
@@ -102,7 +107,7 @@ destinées aux troupes amateures comme aux compagnies professionnelles."
                                     </div>
                                 </div>
                                 {/* Femmes */}
-                                <div className="flex-1 flex items-center gap-2 bg-white/5 border border-white/10 rounded-lg px-3 py-2 min-w-[180px]">
+                                <div className=" flex items-center gap-2 justify-center bg-white/5 border border-white/10 rounded-lg px-3 py-2 ">
                                     <label className="text-xs font-medium text-white/70 mr-2 whitespace-nowrap">Femmes</label>
                                     <button
                                         onClick={() => setSelectedF([])}
@@ -115,7 +120,7 @@ destinées aux troupes amateures comme aux compagnies professionnelles."
                                     >
                                         Effacer
                                     </button>
-                                    <div className="flex gap-1 flex-wrap">
+                                    <div className="flex gap-1 flex-nowrap">
                                         {[0,1,2,3,4,5,6,7].map((value) => {
                                             const isActive = selectedF.includes(value);
                                             return (
@@ -142,9 +147,16 @@ destinées aux troupes amateures comme aux compagnies professionnelles."
                                 </div>
                             </div>
                         </div>
-                        <p className="text-xs mt-[-4px] text-white/40">
-                            (Aucun choix = n'importe quel nombre)
-                        </p>
+ 
+
+                        {/* Message shown directly under the distribution controls when no play matches */}
+                        {!loading && filteredPlays.length === 0 && (
+                            <div className="rounded-lg border border-white/10 bg-white/5 p-4 mt-4 text-center">
+                                <p className="text-lg text-white/60">
+                                    Aucune pièce trouvée pour cette distribution.
+                                </p>
+                            </div>
+                        )}
                     </div>
 
                     {loading ? (
@@ -154,11 +166,7 @@ destinées aux troupes amateures comme aux compagnies professionnelles."
                             ))}
                         </div>
                     ) : filteredPlays.length === 0 ? (
-                        <div className="rounded-lg border border-white/10 bg-white/5 p-8 text-center">
-                            <p className="text-lg text-white/60">
-                                Aucune pièce trouvée pour cette distribution.
-                            </p>
-                        </div>
+                        <></>
                     ) : (
                         <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                             {filteredPlays.map((p) => (
