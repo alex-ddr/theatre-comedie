@@ -6,7 +6,14 @@ import Tag from "@/components/ui/Tag";
 export default function PlayCardStyled({ play }: { play: Play }) {
     const [imgOk, setImgOk] = useState(true);
     const imageSrc = `/img/${play.slug}.png`;
-
+    const getDistributionRange = () => {
+        if (!play.distributions || play.distributions.length === 0) return null;
+        const totals = play.distributions.map(d => d.total);
+        const min = Math.min(...totals);
+        const max = Math.max(...totals);
+        return min === max ? `${min} rôles` : `${min} à ${max} rôles`;
+    };
+    const distributionRange = getDistributionRange();
     return (
         <Link
             to={`/pieces/${play.slug}`}
@@ -41,7 +48,8 @@ export default function PlayCardStyled({ play }: { play: Play }) {
 
             {/* Tags en haut à gauche */}
             <div className="relative z-10 flex flex-wrap gap-2 p-4 text-[11px]">
-                {play.genre && <Tag>{play.genre}</Tag>}
+                {play.genre && <Tag genre={true} >{play.genre}</Tag>}
+                {distributionRange && <Tag>{distributionRange}</Tag>}
                 {play.duration && <Tag>{play.duration}</Tag>}
             </div>
 
@@ -50,9 +58,9 @@ export default function PlayCardStyled({ play }: { play: Play }) {
                 {/* Ligne décorative avec gradient */}
                 <div className="mb-3 h-0.5 w-16 rounded-full bg-gradient-to-r from-orange-500 via-pink-500 to-transparent opacity-70 transition-all duration-300 group-hover:w-24 group-hover:opacity-100" />
                 
-                <h3 className="gradient-text text-xl font-bold leading-tight transition-all duration-300 group-hover:scale-[1.02]">
+                <h2 className="gradient-text text-2xl font-bold leading-tight transition-all duration-300 group-hover:scale-[1.02]">
                     {play.title}
-                </h3>
+                </h2>
                 <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-white/90 transition-colors duration-300 group-hover:text-white/100">
                     {play.accroche}
                 </p>

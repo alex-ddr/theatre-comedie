@@ -22,8 +22,6 @@ export default function Contact() {
         const lastName = formData.get('lastName') as string;
         const email = formData.get('email') as string;
         const phone = formData.get('phone') as string;
-        const troupe = formData.get('troupe') as string;
-        const subject = formData.get('subject') as string;
         const messageText = formData.get('message') as string;
 
         try {
@@ -37,10 +35,7 @@ export default function Contact() {
                     name: `${firstName} ${lastName.toUpperCase()}`,
                     email: email,
                     phone: phone,
-                    subject: subject,
                     message: `
-${troupe ? `🎭 Troupe : ${troupe}` : ''}
-
 ${messageText}`.trim(),
                 }),
             });
@@ -68,17 +63,17 @@ ${messageText}`.trim(),
                 subtitle="Une question sur une pièce ? Besoin d'informations pour une représentation ? N'hésitez pas à me contacter."
             />
 
-            <section className="relative bg-[#0b0b12]/75 backdrop-blur-xl">
+            <section className="relative bg-[#0b0b12]/55 ">
                 <div className="mx-auto max-w-5xl px-4 py-16">
                     {/* Informations de contact */}
-                    <div className="mb-12 grid gap-6 md:grid-cols-2">
+                    <div className="mb-12 grid gap-6 md:grid-cols-2 ">
                         {/* Email */}
                         <a
                             href={`mailto:${siteData.email}`}
-                            className="glass group flex flex-col items-center rounded-2xl p-8 transition-all duration-300 hover:scale-[1.02] hover:bg-white/[0.08] hover:shadow-[0_8px_40px_rgba(255,122,24,0.15)]"
+                            className=" glass group flex flex-col items-center rounded-2xl p-8 transition-all duration-300 hover:scale-[1.02] hover:bg-white/[0.08] hover:shadow-[0_8px_40px_rgba(255,122,24,0.15)]"
                         >
-                            <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-pink-500 to-orange-500 shadow-lg">
-                                <svg className="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-pink-500 to-orange-500 shadow-lg">
+                                <svg className="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                 </svg>
                             </div>
@@ -93,8 +88,8 @@ ${messageText}`.trim(),
                             href={`tel:${siteData.phone.replace(/\s/g, '')}`}
                             className="glass group flex flex-col items-center rounded-2xl p-8 transition-all duration-300 hover:scale-[1.02] hover:bg-white/[0.08] hover:shadow-[0_8px_40px_rgba(255,122,24,0.15)]"
                         >
-                            <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-orange-500 to-pink-500 shadow-lg">
-                                <svg className="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-orange-500 to-pink-500 shadow-lg">
+                                <svg className="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                                 </svg>
                             </div>
@@ -180,34 +175,7 @@ ${messageText}`.trim(),
                                 </div>
                             </div>
 
-                            <div>
-                                <label htmlFor="troupe" className="mb-2 block text-sm font-medium text-white/80">
-                                    Nom de la troupe (optionnel)
-                                </label>
-                                <input
-                                    type="text"
-                                    id="troupe"
-                                    name="troupe"
-                                    className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/40 backdrop-blur-sm transition-colors focus:border-pink-500/50 focus:bg-white/10 focus:outline-none"
-                                    placeholder="Nom de votre troupe"
-                                />
-                            </div>
-
-                            <div>
-                                <label htmlFor="subject" className="mb-2 block text-sm font-medium text-white/80">
-                                    Sujet <span className="text-pink-400">*</span>
-                                </label>
-                                <input
-                                    type="text"
-                                    id="subject"
-                                    name="subject"
-                                    className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/40 backdrop-blur-sm transition-colors focus:border-pink-500/50 focus:bg-white/10 focus:outline-none"
-                                    placeholder="Objet de votre message"
-                                    required
-                                />
-                            </div>
-
-                            <div>
+                            <div className="mt-4">
                                 <label htmlFor="message" className="mb-2 block text-sm font-medium text-white/80">
                                     Message <span className="text-pink-400">*</span>
                                 </label>

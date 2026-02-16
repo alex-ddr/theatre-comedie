@@ -63,7 +63,7 @@ export default function TheyPlayed() {
                                 </div>
                             </div>
                             <div className="mt-4 text-sm text-white/60">
-                                Voir la liste (PDF)
+                                Voir la liste des troupes (PDF)
                             </div>
                         </a>
                     );
@@ -73,7 +73,7 @@ export default function TheyPlayed() {
             {/* Message footer */}
             <div className="mt-12 text-center">
                 <p className="text-sm italic text-white/50">
-                    Plus de 600 troupes francophones ont déjà fait confiance à Franck Didier
+                    Plus de 1300 troupes francophones ont déjà choisi de représenter l’une des comédies de Franck DIDIER.
                 </p>
             </div>
         </div>

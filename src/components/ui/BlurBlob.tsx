@@ -40,13 +40,19 @@ const particles: BlobSeed[] = [
     { size: "h-2 w-2", color: "bg-amber-300/85", blur: "blur-[2px]", range: 80, dur: [8, 12], scaleAmp: 0.45 },
 ];
 
-function rand(min: number, max: number) {
-    return Math.random() * (max - min) + min;
+
+// Seeded random generator for determinism
+let _blobSeed = 42;
+function seededRand(min: number, max: number) {
+    // Linear congruential generator
+    _blobSeed = (_blobSeed * 9301 + 49297) % 233280;
+    const rnd = _blobSeed / 233280;
+    return min + rnd * (max - min);
 }
 
 function randWaypoints(range: number, n: number) {
     const pts = [0];
-    for (let i = 0; i < n; i++) pts.push(rand(-range, range));
+    for (let i = 0; i < n; i++) pts.push(seededRand(-range, range));
     pts.push(0);
     return pts;
 }
@@ -54,18 +60,20 @@ function randWaypoints(range: number, n: number) {
 function breathe(steps: number) {
     const pts: number[] = [0.8];
     for (let i = 0; i < steps; i++) {
-        pts.push(rand(0.3, 0.6), rand(0.7, 1), rand(0.2, 0.45));
+        pts.push(seededRand(0.3, 0.6), seededRand(0.7, 1), seededRand(0.2, 0.45));
     }
     pts.push(0.8);
     return pts;
 }
 
 function edgeBias() {
-    const v = Math.random();
-    return v < 0.5 ? rand(-30, 15) : rand(75, 115);
+    const v = seededRand(0, 1);
+    return v < 0.5 ? seededRand(-30, 15) : seededRand(75, 115);
 }
 
 function buildBlobs() {
+    // Always reset the seed for deterministic output
+    _blobSeed = 42;
     const allSeeds = [...large, ...medium, ...small];
     const nL = large.length;
     const nM = medium.length;
@@ -78,19 +86,19 @@ function buildBlobs() {
             top = edgeBias();
             left = edgeBias();
         } else if (i < nL + nM) {
-            top = rand(-5, 95);
-            left = rand(-5, 95);
+            top = seededRand(-5, 95);
+            left = seededRand(-5, 95);
         } else {
-            top = rand(5, 90);
-            left = rand(5, 90);
+            top = seededRand(5, 90);
+            left = seededRand(5, 90);
         }
 
-        const dur = rand(s.dur[0], s.dur[1]);
+        const dur = seededRand(s.dur[0], s.dur[1]);
         const x = randWaypoints(s.range, 2);
         const y = randWaypoints(s.range, 2);
-        const scale = [1, 1 + rand(-s.scaleAmp, s.scaleAmp), 1];
+        const scale = [1, 1 + seededRand(-s.scaleAmp, s.scaleAmp), 1];
         const opacity = breathe(2);
-        const breathDur = rand(35, 60);
+        const breathDur = seededRand(35, 60);
 
         return {
             cls: `absolute rounded-full ${s.size} ${s.color} ${s.blur}`,
@@ -101,13 +109,19 @@ function buildBlobs() {
 
     // Ajouter les particules lumineuses dispersées
     particles.forEach((p) => {
-        const top = rand(0, 100);
-        const left = rand(0, 100);
-        const dur = rand(p.dur[0], p.dur[1]);
+        const top = seededRand(0, 100);
+        const left = seededRand(0, 100);
+        const dur = seededRand(p.dur[0], p.dur[1]);
         const x = randWaypoints(p.range, 2);
         const y = randWaypoints(p.range, 2);
-        const scale = [1, 1 + rand(-p.scaleAmp, p.scaleAmp), 1];
-        const opacity = [rand(0.4, 0.8), rand(0.6, 1), rand(0.3, 0.7), rand(0.5, 0.9), rand(0.4, 0.8)];
+        const scale = [1, 1 + seededRand(-p.scaleAmp, p.scaleAmp), 1];
+        const opacity = [
+            seededRand(0.4, 0.8),
+            seededRand(0.6, 1),
+            seededRand(0.3, 0.7),
+            seededRand(0.5, 0.9),
+            seededRand(0.4, 0.8)
+        ];
         
         result.push({
             cls: `absolute rounded-full ${p.size} ${p.color} ${p.blur}`,

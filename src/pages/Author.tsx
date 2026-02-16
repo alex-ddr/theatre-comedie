@@ -3,13 +3,13 @@ import { author } from "@/lib/content";
 export default function Author() {
     const stats = [
         { label: "Années d'écriture", value: "20+" },
-        { label: "Pièces créées", value: "17" },
-        { label: "Comédies musicales", value: "3" },
+        { label: "Pièces", value: "17" },
+        { label: "Comédies musicales", value: "2" },
         { label: "Distributions possibles", value: "50+" },
     ];
 
     return (
-        <div className="mx-auto max-w-7xl px-4 py-10">
+        <div className="mx-auto w-5/6 px-4 py-10">
             <h1 className="gradient-text mb-8 text-center text-5xl font-bold">
                 {author.headline}
             </h1>
@@ -36,7 +36,7 @@ export default function Author() {
                 <div className="float-left mr-8 mb-6 w-full md:w-[350px] relative overflow-hidden rounded-lg">
                     <img 
                         src="/img/franck_didier.jpg" 
-                        alt="Franck Didier"
+                        alt="Franck DIDIER"
                         className="w-full h-auto object-cover mix-blend-screen rounded-lg"
                         width="350"
                         height="467"
@@ -47,21 +47,16 @@ export default function Author() {
                 </div>
 
                 <p className="mb-6 text-lg">
-                    Né au milieu des années soixante, originaire du Gard et établi à Paris, Franck est auteur de théâtre depuis <span className="font-bold text-pink-400">plus de 20 ans</span>. Il a travaillé sur plusieurs spectacles en tant que <span className="font-semibold text-white/90">metteur en scène, comédien</span>, et également en tant que comédien-chanteur-danseur dans le cadre de trois comédies musicales.
+                    Originaire du Gard et établi à Paris depuis de nombreuses années, Franck est auteur de théâtre depuis <span className="font-bold text-pink-400">plus de 20 ans</span>. Il a travaillé sur plusieurs spectacles en tant que <span className="font-semibold text-white/90">metteur en scène, comédien</span>, et également en tant que comédien-chanteur-danseur dans le cadre de trois comédies musicales.
                 </p>
-                
                 <p className="mb-10 text-lg">
-                    En <span className="font-bold text-pink-400">1992</span>, il fonde, à Paris, la compagnie de comédie musicale <span className="font-semibold text-pink-300">Artis'Show</span> qui a produit deux de ses créations…
+                    À la fin des années 90, il fonde, à Paris, la compagnie de comédie musicale <span className="font-semibold text-pink-300">Artis'Show</span> qui a produit deux de ses créations…
                 </p>
-                
-
-                
                 <p className="mb-6 text-lg">
-                    Face à la difficulté de monter de gros projets tels que les comédies musicales, c'est naturellement qu'il se tourne ensuite vers l'écriture de pièces de théâtre plus simples à produire et à représenter. Ses dernières créations s'orientent ainsi vers des pièces de théâtre plus <span className="font-semibold text-white/90">« transportables »</span> et, pour certaines, plus intimistes…
+                    Face à la difficulté de monter de gros projets tels que les comédies musicales, c'est naturellement qu'il se tourne ensuite vers l'écriture de pièces de théâtre plus simples à produire et à représenter. Ses autres créations s'orientent ainsi vers des pièces de théâtre plus <span className="font-semibold text-white/90">« transportables »</span> et, pour certaines, plus intimistes…
                 </p>
-                
                 <p className="text-lg">
-                    Ses créations sont des comédies avec, bien sûr, <span className="font-bold text-pink-400">l'humour comme finalité principale</span>. Toutefois, Franck Didier ne souhaite pas limiter ses pièces à une dimension purement humoristique, trop réductrice à son goût. Un autre ingrédient est toujours associé à la recette pour lui donner <span className="font-bold text-pink-300">l'originalité et la singularité</span> nécessaires. Les <span className="font-semibold text-white/90">univers originaux</span> qu'il nous invite à découvrir et ses <span className="font-semibold text-white/90">qualités de dialoguiste</span> lui valent depuis quelques années une <span className="font-bold text-pink-400">réelle reconnaissance dans le monde du théâtre amateur</span>. Certaines de ses pièces, plus calibrées pour le théâtre professionnel, ont également été produites dans ce cadre.
+                    Ses créations sont des comédies avec, bien sûr, <span className="font-bold text-pink-400">l'humour comme finalité principale</span>. Toutefois, Franck DIDIER ne souhaite pas limiter ses pièces à une dimension purement humoristique, trop réductrice à son goût. Un autre ingrédient est toujours associé à la recette pour lui donner <span className="font-bold text-pink-300">l'originalité et la singularité</span> nécessaires. Les <span className="font-semibold text-white/90">univers originaux</span> qu'il nous invite à découvrir et ses <span className="font-semibold text-white/90">qualités de dialoguiste</span> lui valent depuis quelques années une <span className="font-bold text-pink-400">réelle reconnaissance dans le monde du théâtre amateur</span>. Certaines de ses pièces, plus calibrées pour le théâtre professionnel, ont également été produites dans ce cadre.
                 </p>
             </div>
         </div>

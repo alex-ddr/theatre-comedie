@@ -1,0 +1,17 @@
+{
+  "title": "Et si c’était moi ?",
+  "slug": "et-si-cetait-moi",
+  "genre": "Comédie de couple",
+  "duration": "~ 1h20",
+  "distribution": "2H/2F",
+  "roles": 4,
+  "accroche": "Une comédie aigre-douce sur le couple, 25 ans après…",
+  "sections": {
+    "résumé": "Les enfants de Jeanne et Laurent ont quitté le foyer familial et rien n’est plus comme avant.\nDéboussolé par cette nouvelle situation, Laurent a perdu ses repères et fait porter à Jeanne la responsabilité d’un couple qu’il sent partir à la dérive.\nSelon Laurent, leur couple a besoin d’un « électrochoc » pour passer ce cap difficile au risque de ne pas pouvoir le surmonter.\nC’est avec l’objectif de créer cet « électrochoc » que vient à Jeanne l’idée de ressouder son couple en lui faisant vivre l’expérience la plus épique de son existence.\nPour cela, Jeanne fait appel aux services d’un comédien professionnel qui devra jouer les intrus dans leur vie de couple.\nL’idée est bien pensée… le jour J arrive… les dés sont jetés.",
+    "les atouts de la pièce": "L’originalité de la pièce tient notamment aux interventions vocales d’une box ALEXA et d’émissions radio qui permettent de créer des situations très cocasses.\nL’auteur fournit les fichiers audios des messages vocaux de la box et des émissions radio : le technicien son devra les lancer « au millimètre » pour que les effets comiques soient optimaux.\nDes flash-back pendant la pièce vont permettre au spectateur de reconstituer au fil de l’eau l’historique des événements du projet voulu par Madame et voir se dessiner sous ses yeux, un stratagème machiavélique et implacable.\nPour les 4 personnages, la matière est là et pourra permettre aux comédiens de laisser libre cours à leur créativité, d’apporter leur propre démesure pour les emmener encore plus loin que ce qui figure dans le livret.\nLa distribution réduite permettra un travail en profondeur des personnages pour un huis-clos original et « aigre-doux ». Deux hommes et deux femmes non pas pour un carré amoureux mais pour un triangle amoureux totalement improbable.",
+    "thème": "Sous la forme d’un ton humoristique car la pièce reste une vraie comédie, la pièce aborde la question délicate de la vie du couple dans la durée. Le départ des enfants de la maison est parfois un cap difficile à passer. Madame elle, semble avoir trouvé la solution pour surmonter ce cap et rebooster son couple grâce au scénario particulièrement machiavélique qu’elle a imaginé.\nMais son couple y résistera-t-il ?"
+  },
+  "distributions": [
+    { "h": 2, "f": 2, "total": 4 }
+  ]
+}

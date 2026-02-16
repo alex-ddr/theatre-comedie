@@ -1,12 +1,12 @@
 export default function Hero({ title, subtitle }: { title: string; subtitle?: string }) {
     return (
-        <section className="relative overflow-hidden pb-12">
+        <section className="relative overflow-hidden pb-8">
             <div className="relative z-10 mx-auto flex min-h-[32vh] max-w-6xl flex-col items-center justify-center px-4 py-16 text-center">
-                <h1 className="gradient-text text-4xl leading-tight font-extrabold tracking-tight md:text-6xl">
+                <h1 className="gradient-text text-4xl leading-tight font-extrabold tracking-tight md:text-5xl">
                     {title}
                 </h1>
                 {subtitle && (
-                    <p className="mt-5 text-base text-white/60 md:text-lg w-2/3">
+                    <p className="mt-5 text-base text-white/60 md:text-md w-2/3">
                         {subtitle}
                     </p>
                 )}

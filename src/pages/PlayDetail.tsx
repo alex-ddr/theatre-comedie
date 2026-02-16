@@ -28,7 +28,7 @@ export default function PlayDetail() {
         const totals = play.distributions.map(d => d.total);
         const min = Math.min(...totals);
         const max = Math.max(...totals);
-        return min === max ? `${min} comédiens` : `${min}-${max} comédiens`;
+        return min === max ? `${min} rôles` : `${min} à ${max} rôles`;
     };
     
     const distributionRange = getDistributionRange();
@@ -44,24 +44,11 @@ export default function PlayDetail() {
     return (
         <article>
             {/* Bandeau d'image pleine largeur */}
-            <div className="relative h-72 w-full overflow-hidden">
-                {/* Bouton play si vidéo disponible - placé en premier pour utiliser peer */}
-                {youtubeId && (
-                    <button
-                        onClick={() => setIsVideoPlaying(true)}
-                        className="peer absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-pink-500 to-orange-500 text-white shadow-2xl shadow-pink-500/50 z-10"
-                        aria-label="Lire la vidéo"
-                    >
-                        <svg className="ml-1 h-10 w-10" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8 5v14l11-7z" />
-                        </svg>
-                    </button>
-                )}
-                
+            <div className="relative h-72 w-full overflow-hidden border-b-1 border-b-orange-500/40 shadow-[0_8px_24px_-8px_rgba(251,146,60,0.5)] z-10">
                 <img 
                     src={`/img/${play.slug}.png`}
                     alt={play.title}
-                    className="h-full w-full object-cover transition-transform duration-500 peer-hover:scale-110"
+                    className="h-full w-full object-cover transition-transform duration-500"
                     width="1200"
                     height="600"
                     loading="eager"
@@ -71,7 +58,6 @@ export default function PlayDetail() {
                     }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f]/95 via-[#0a0a0f]/40 to-transparent pointer-events-none" />
-                
                 <div className="absolute bottom-0 left-0 right-0 p-10 pointer-events-none">
                     <div className="mx-auto max-w-[1400px]">
                         {/* En-tête avec titre et accroche */}
@@ -81,7 +67,6 @@ export default function PlayDetail() {
                             </h1>
                             <p className="text-xl text-white/80 max-w-3xl">{play.accroche}</p>
                         </header>
-
                         {/* Informations sous forme de tags */}
                         <div className="flex flex-wrap gap-2">
                             {play.genre && (
@@ -99,39 +84,7 @@ export default function PlayDetail() {
                 </div>
             </div>
 
-            {/* Modale vidéo YouTube */}
-            {isVideoPlaying && youtubeId && (
-                <div 
-                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm"
-                    onClick={() => setIsVideoPlaying(false)}
-                >
-                    <button
-                        onClick={() => setIsVideoPlaying(false)}
-                        className="absolute right-6 top-6 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white transition-all hover:bg-white/20 hover:scale-110"
-                        aria-label="Fermer la vidéo"
-                    >
-                        <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
-                    <div 
-                        className="relative mx-4 w-full max-w-6xl"
-                        onClick={(e) => e.stopPropagation()}
-                    >
-                        <div className="relative aspect-video overflow-hidden rounded-2xl shadow-2xl">
-                            <iframe
-                                className="h-full w-full"
-                                src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1`}
-                                title={`Vidéo de ${play.title}`}
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowFullScreen
-                            />
-                        </div>
-                    </div>
-                </div>
-            )}
-
-            <div className="mx-auto max-w-[1400px] px-10 py-10">
+            <div className="mx-auto w-5/6 px-10 py-10">
                 {/* Tags en pleine largeur */}
                 {play.tags && play.tags.length > 0 && (
                     <div className="glass mb-8 rounded-2xl p-6">
@@ -147,7 +100,7 @@ export default function PlayDetail() {
                 )}
 
                 {/* Grille principale avec sections de contenu à gauche et distributions à droite */}
-                <div className="grid gap-8 lg:grid-cols-[1fr_380px]">
+                <div className="grid gap-8 lg:grid-cols-[1fr_300px]">
                     {/* Colonne gauche - Sections de contenu */}
                     <div className="space-y-6">
                         {/* Sections de contenu */}
@@ -166,6 +119,20 @@ export default function PlayDetail() {
                                         </p>
                                     </div>
                                 ))}
+                                {/* Vidéo YouTube sous les blocs de texte, dans la colonne de gauche */}
+                                {youtubeId && (
+                                    <div className="my-8">
+                                        <div className="relative aspect-video overflow-hidden rounded-2xl shadow-2xl">
+                                            <iframe
+                                                className="h-full w-full"
+                                                src={`https://www.youtube.com/embed/${youtubeId}`}
+                                                title={`Vidéo de ${play.title}`}
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                allowFullScreen
+                                            />
+                                        </div>
+                                    </div>
+                                )}
                             </>
                         )}
                     </div>
@@ -213,10 +180,11 @@ export default function PlayDetail() {
                             {pdfUrl && (
                                 <a
                                     href={pdfUrl}
-                                    download
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="block w-full rounded-2xl bg-gradient-to-r from-pink-500 to-orange-500 px-6 py-4 text-center text-base font-semibold text-white shadow-lg shadow-pink-500/25 transition-all hover:scale-105 hover:shadow-xl hover:shadow-pink-500/30"
                                 >
-                                    📄 Télécharger le début (PDF)
+                                    Télécharger la pièce (PDF)
                                 </a>
                             )}
                         </div>
