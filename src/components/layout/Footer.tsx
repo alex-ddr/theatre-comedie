@@ -9,8 +9,7 @@ export default function Footer() {
                         Théâtre & Comédie
                     </h3>
                     <p className="mt-2 text-white/70">
-                        Pièces contemporaines, comédies et intrigues, prêtes à
-                        jouer.
+                        Pièces contemporaines, comédies et intrigues.
                     </p>
                 </div>
                 <div className="flex gap-6 text-white/70 sm:justify-end">

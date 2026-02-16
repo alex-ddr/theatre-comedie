@@ -8,8 +8,29 @@ export default function Home() {
     const [allPlays, setAllPlays] = useState<Play[]>([]);
     const [loading, setLoading] = useState(true);
 
-    const [selectedH, setSelectedH] = useState<number[]>([]);
-    const [selectedF, setSelectedF] = useState<number[]>([]);
+    const [selectedH, setSelectedH] = useState<number[]>(() => {
+        try {
+            const val = localStorage.getItem('selectedH');
+            return val ? JSON.parse(val) : [];
+        } catch {
+            return [];
+        }
+    });
+    const [selectedF, setSelectedF] = useState<number[]>(() => {
+        try {
+            const val = localStorage.getItem('selectedF');
+            return val ? JSON.parse(val) : [];
+        } catch {
+            return [];
+        }
+    });
+    // Sauvegarde dans localStorage à chaque changement
+    useEffect(() => {
+        localStorage.setItem('selectedH', JSON.stringify(selectedH));
+    }, [selectedH]);
+    useEffect(() => {
+        localStorage.setItem('selectedF', JSON.stringify(selectedF));
+    }, [selectedF]);
 
     useEffect(() => {
         getAllPlays().then(plays => {

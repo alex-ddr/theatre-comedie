@@ -5,9 +5,9 @@
     "duration": "~ 1h30",
     "distributions": [
         {
-            "total": 6,
+            "total": 8,
             "h": 2,
-            "f": 4
+            "f": 6
         },
         {
             "total": 8,
@@ -15,16 +15,16 @@
             "f": 5
         },
         {
-            "total": 10,
+            "total": 8,
             "h": 4,
-            "f": 6
+            "f": 4
         }
     ],
-    "accroche": "Il vous revient en pleine face lorsque vous vous y attendez le moins…",
+    "accroche": "Il vous revient en pleine face lorsque vous vous y attendez le moins...",
     "sections": {
-        "résumé": "Charlotte, avocate presque quadragénaire, invite famille et amis pour une soirée qu’elle annonce festive, en l’absence de son mari, en déplacement professionnel. En fait, elle veut profiter de cette réunion pour leur apprendre que, le lendemain matin même, elle quitte tout — mari et cabinet d’avocats — pour aller s’installer au Mexique avec son nouvel amour, Pablo, sculpteur sur canettes de soda.\nUn duel psychologique s’engage alors entre elle et sa famille bon chic bon genre et son associé qui, par intérêt, veulent la dissuader de commettre une telle folie. Ce début de soirée et cette annonce, bien que sulfureux, ne sont rien en comparaison de ce qui attend le groupe lorsqu’il verra surgir, pistolet au poing, Bourguignon, un ouvrier licencié actuellement en procès contre un client de Charlotte…",
-        "les atouts de la pièce": "Cette pièce met en évidence la difficulté de communiquer quand on ne partage pas la même vision des choses. Le mot tolérance prend ici toute sa dimension : dans l’annonce faite par Charlotte, avocate, à sa famille et à ses amis, de plaquer mari et travail pour vivre autrement, sur la base de valeurs non plus matérielles mais spirituelles ; ou dans le combat de Lambert, simple ouvrier, licencié par son patron et désireux de faire valoir ses droits par tous les moyens.\nSur fond de climat social tendu et de climat familial désastreux, les situations s’enchaînent à vive allure et une seule chose est sûre à la fin : il n’y a pas de gentils et pas de méchants… c’est chacun pour soi et chacun n’a plus qu’un objectif : défendre ses propres intérêts.",
-        "thème": "À 40 ans, elle rassemble famille et amis pour leur annoncer qu’elle change de vie… À certains moments de sa vie, on peut être amené à se remettre en cause et à se poser les questions les plus existentielles : qui suis-je, où vais-je et qu’est-ce que j’ai fait jusqu’à aujourd’hui ? Charlotte, l’héroïne de la pièce, est à ce moment charnière de sa vie où elle se rend compte qu’elle a fait la moitié du chemin et qu’elle est certaine de vouloir que sa deuxième moitié de vie soit radicalement différente de la première.\nSe pose alors la question d’avoir le courage de tout plaquer pour l’inconnu et, surtout, de l’annoncer à son entourage.\nC’est cette expérience que le public va partager avec Charlotte. Il va néanmoins très vite comprendre que cette situation, tellement embarrassante et difficile, n’est rien au regard de ce qui attend tous les protagonistes au cours de cette soirée pleine de rebondissements."
+        "résumé": "Charlotte, avocate presque quadragénaire, invite famille et amis pour une soirée qu’elle annonce festive, en l’absence de son mari, en déplacement professionnel. En fait, elle veut profiter de cette réunion pour leur apprendre que, le lendemain matin même, elle quitte tout — mari et cabinet d’avocats — pour aller s’installer au Mexique avec son nouvel amour, Pablo, sculpteur sur canettes de soda.\nUn duel psychologique s’engage alors entre elle et sa famille bon chic bon genre et son associé qui, par intérêt, veulent la dissuader de commettre une telle folie. Ce début de soirée et cette annonce, bien que sulfureux, ne sont rien en comparaison de ce qui attend le groupe lorsqu’il verra surgir, pistolet au poing, Bourguignon, un ouvrier licencié actuellement en procès contre un client de Charlotte...",
+        "les atouts de la pièce": "Cette pièce met en évidence la difficulté de communiquer quand on ne partage pas la même vision des choses. Le mot tolérance prend ici toute sa dimension : dans l’annonce faite par Charlotte, avocate, à sa famille et à ses amis, de plaquer mari et travail pour vivre autrement, sur la base de valeurs non plus matérielles mais spirituelles ; ou dans le combat de Lambert, simple ouvrier, licencié par son patron et désireux de faire valoir ses droits par tous les moyens.\nSur fond de climat social tendu et de climat familial désastreux, les situations s’enchaînent à vive allure et une seule chose est sûre à la fin : il n’y a pas de gentils et pas de méchants... c’est chacun pour soi et chacun n’a plus qu’un objectif : défendre ses propres intérêts.",
+        "thème": "À 40 ans, elle rassemble famille et amis pour leur annoncer qu’elle change de vie... À certains moments de sa vie, on peut être amené à se remettre en cause et à se poser les questions les plus existentielles : qui suis-je, où vais-je et qu’est-ce que j’ai fait jusqu’à aujourd’hui ? Charlotte, l’héroïne de la pièce, est à ce moment charnière de sa vie où elle se rend compte qu’elle a fait la moitié du chemin et qu’elle est certaine de vouloir que sa deuxième moitié de vie soit radicalement différente de la première.\nSe pose alors la question d’avoir le courage de tout plaquer pour l’inconnu et, surtout, de l’annoncer à son entourage.\nC’est cette expérience que le public va partager avec Charlotte. Il va néanmoins très vite comprendre que cette situation, tellement embarrassante et difficile, n’est rien au regard de ce qui attend tous les protagonistes au cours de cette soirée pleine de rebondissements."
     },
     "download": {
         "url": "/pdfs/le-retour-du-boomerang.pdf"
