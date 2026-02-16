@@ -83,7 +83,7 @@ export default function Nav() {
                     Théâtre & Comédie
                 </Link>
 
-                <nav className="ml-auto hidden items-center gap-1 text-sm md:flex">
+                <nav className="ml-auto hidden items-center gap-1 text-sm md:flex md:justify-center md:flex-1">
                     {tabsLeft.map((t) => (
                         <TabLink key={t.to} {...t} />
                     ))}
