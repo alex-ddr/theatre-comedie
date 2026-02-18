@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Modal from "@/components/ui/Modal";
 import { useParams, Link } from "react-router-dom";
 import { getPlay } from "@/lib/content";
 import Tag from "@/components/ui/Tag";
@@ -70,7 +71,7 @@ export default function PlayDetail() {
     return (
         <article>
             {/* Bandeau d'image pleine largeur */}
-            <div className="relative h-72 w-full overflow-hidden border-b-1 border-b-orange-500/40 shadow-[0_8px_24px_-8px_rgba(251,146,60,0.5)] z-10">
+            <div className="relative h-72 w-full overflow-hidden border-b-1 border-b-orange-500/40 shadow-[0_8px_24px_-8px_rgba(251,146,60,0.5)]">
                 <img 
                     src={`/img/${play.slug}.png`}
                     alt={play.title}
@@ -145,25 +146,12 @@ export default function PlayDetail() {
                                         </p>
                                     </div>
                                 ))}
-                                {/* Vidéo YouTube sous les blocs de texte, dans la colonne de gauche */}
-                                {youtubeId && (
-                                    <div className="my-8">
-                                        <div className="relative aspect-video overflow-hidden rounded-2xl shadow-2xl">
-                                            <iframe
-                                                className="h-full w-full"
-                                                src={`https://www.youtube.com/embed/${youtubeId}`}
-                                                title={`Vidéo de ${play.title}`}
-                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                                allowFullScreen
-                                            />
-                                        </div>
-                                    </div>
-                                )}
+                                {/* Bouton vidéo déplacé dans la colonne de droite */}
                             </>
                         )}
                     </div>
 
-                    {/* Colonne droite sticky - Distributions et téléchargement */}
+                    {/* Colonne droite sticky - Distributions et boutons */}
                     <div className="space-y-6">
                         <div className="sticky top-24 space-y-6">
                             {/* Distributions possibles */}
@@ -202,16 +190,41 @@ export default function PlayDetail() {
                                 </div>
                             )}
 
-                            {/* Bouton téléchargement */}
-                            {pdfUrl && (
-                                <a
-                                    href={pdfUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="block w-full rounded-2xl bg-gradient-to-r from-pink-500 to-orange-500 px-6 py-4 text-center text-base font-semibold text-white shadow-lg shadow-pink-500/25 transition-all hover:scale-105 hover:shadow-xl hover:shadow-pink-500/30"
-                                >
-                                    Télécharger la pièce (PDF)
-                                </a>
+                            {/* Boutons action */}
+                            <div className="flex flex-col gap-2">
+                                {pdfUrl && (
+                                    <a
+                                        href={pdfUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="rounded-2xl bg-gradient-to-r from-pink-500 to-orange-500 px-6 py-4 text-center text-base font-semibold text-white shadow-lg shadow-pink-500/25 transition-all hover:scale-105 hover:shadow-xl hover:shadow-pink-500/30 w-full"
+                                    >
+                                        Télécharger la pièce (PDF)
+                                    </a>
+                                )}
+                                {youtubeId && (
+                                    <button
+                                        className="rounded-xl mt-1 w-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-medium text-white/80 hover:bg-white/20 transition-all"
+                                        onClick={() => setIsVideoPlaying(true)}
+                                        type="button"
+                                    >
+                                        Voir un extrait vidéo
+                                    </button>
+                                )}
+                            </div>
+                            {/* Modale vidéo */}
+                            {youtubeId && (
+                                <Modal open={isVideoPlaying} onClose={() => setIsVideoPlaying(false)}>
+                                    <div className="relative aspect-video w-[80vw] max-w-2xl">
+                                        <iframe
+                                            className="h-full w-full rounded-2xl"
+                                            src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1`}
+                                            title={`Vidéo de ${play.title}`}
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen
+                                        />
+                                    </div>
+                                </Modal>
                             )}
                         </div>
                     </div>

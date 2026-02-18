@@ -31,15 +31,14 @@ export default function Author() {
             </div>
 
             {/* Un seul bloc avec photo flottante */}
-            <div className="rounded-lg border border-white/10 bg-white/5 p-8 leading-relaxed text-white/80 backdrop-blur-sm">
+            <div className="rounded-lg border border-white/10 bg-white/5 p-8 leading-relaxed text-white/80 backdrop-blur-sm ">
                 {/* Photo flottante à gauche */}
-                <div className="float-left mr-8 mb-6 w-full md:w-[350px] relative overflow-hidden rounded-lg">
+                <div className="float-left mr-8 mb-6 md:w-[250px] relative overflow-hidden rounded-lg ">
                     <img 
-                        src="/img/franck_didier.jpg" 
+                        src="/img/franck-didier-2.jpeg" 
                         alt="Franck DIDIER"
-                        className="w-full h-auto object-cover mix-blend-screen rounded-lg"
-                        width="350"
-                        height="467"
+                        className="object-cover mix-blend-screen rounded-lg"
+                        width="250"
                         loading="eager"
                         decoding="async"
                     />
