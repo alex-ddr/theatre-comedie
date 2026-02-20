@@ -41,7 +41,7 @@ export default function Nav() {
             {/* Stretching background: overlays page content but stays behind header content */}
             <div
                 aria-hidden
-                className={`absolute left-0 right-0 top-full transition-[height] duration-200 ease-in-out z-50 overflow-hidden ${open ? "h-[160px]" : "h-0"}`}
+                className={`absolute left-0 right-0 top-full transition-[height] duration-200 ease-in-out z-50 overflow-hidden bg-black/70 backdrop-blur-xl ${open ? "h-[160px]" : "h-0"}`}
             >
                 {/* Menu items live inside this stretched area on mobile (appears below header) */}
                 <div className={`hidden md:block`} />
