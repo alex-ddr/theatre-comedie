@@ -59,6 +59,8 @@ export default function PlayDetail() {
     };
     
     const distributionRange = getDistributionRange();
+    const imageSrc = `/img/${play.slug}.png`;
+    const optimizedHeroSrc = `/img/optimized/${play.slug}-hero.webp`;
     
     // Extraire l'ID YouTube de l'URL
     const getYouTubeId = (url: string) => {
@@ -72,18 +74,21 @@ export default function PlayDetail() {
         <article>
             {/* Bandeau d'image pleine largeur */}
             <div className="relative h-72 w-full overflow-hidden border-b-1 border-b-orange-500/40 shadow-[0_8px_24px_-8px_rgba(251,146,60,0.5)]">
-                <img 
-                    src={`/img/${play.slug}.png`}
-                    alt={play.title}
-                    className="h-full w-full object-cover transition-transform duration-500"
-                    width="1200"
-                    height="600"
-                    loading="eager"
-                    decoding="async"
-                    onError={(e) => {
-                        e.currentTarget.style.display = 'none';
-                    }}
-                />
+                <picture>
+                    <source srcSet={optimizedHeroSrc} type="image/webp" />
+                    <img 
+                        src={imageSrc}
+                        alt={play.title}
+                        className="h-full w-full object-cover transition-transform duration-500"
+                        width="1200"
+                        height="600"
+                        loading="eager"
+                        decoding="async"
+                        onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                        }}
+                    />
+                </picture>
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f]/95 via-[#0a0a0f]/40 to-transparent pointer-events-none" />
                 <div className="absolute bottom-0 left-0 right-0 p-10 pointer-events-none">
                     <div className="mx-auto max-w-[1400px]">

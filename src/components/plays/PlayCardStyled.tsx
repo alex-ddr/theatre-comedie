@@ -6,6 +6,7 @@ import Tag from "@/components/ui/Tag";
 const PlayCardStyled = memo(({ play }: { play: Play }) => {
     const [imgOk, setImgOk] = useState(true);
     const imageSrc = `/img/${play.slug}.png`;
+    const optimizedCardSrc = `/img/optimized/${play.slug}-card.webp`;
     const getDistributionRange = () => {
         if (!play.distributions || play.distributions.length === 0) return null;
         const totals = play.distributions.map(d => d.total);
@@ -17,7 +18,7 @@ const PlayCardStyled = memo(({ play }: { play: Play }) => {
     return (
         <Link
             to={`/pieces/${play.slug}`}
-            className="group glass relative flex h-[280px] transform-gpu flex-col overflow-hidden rounded-3xl transition-all duration-300 hover:scale-[1.02] hover:bg-white/[0.08] hover:shadow-[0_8px_40px_rgba(255,122,24,0.15),0_4px_20px_rgba(255,0,110,0.1)] inset-[1px] hover:ring-0 contain-layout"
+            className="group glass relative flex h-[280px] transform-gpu flex-col overflow-hidden rounded-3xl transition-[transform,background-color,box-shadow] duration-300 hover:scale-[1.01] hover:bg-white/[0.08] hover:shadow-[0_10px_24px_rgba(255,122,24,0.18)] inset-[1px] contain-layout"
         >
             {/* Gradient overlay animé */}
             <div className="absolute inset-0 bg-gradient-to-br from-orange-500/0 via-pink-500/0 to-rose-500/0 opacity-0 transition-opacity duration-300 group-hover:opacity-20" />
@@ -26,16 +27,19 @@ const PlayCardStyled = memo(({ play }: { play: Play }) => {
             <div className="absolute inset-0">
                 {imgOk ? (
                     <>
-                        <img
-                            src={imageSrc}
-                            alt={play.title}
-                            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-                            width="350"
-                            height="280"
-                            loading="lazy"
-                            decoding="async"
-                            onError={() => setImgOk(false)}
-                        />
+                        <picture>
+                            <source srcSet={optimizedCardSrc} type="image/webp" />
+                            <img
+                                src={imageSrc}
+                                alt={play.title}
+                                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                width="350"
+                                height="280"
+                                loading="lazy"
+                                decoding="async"
+                                onError={() => setImgOk(false)}
+                            />
+                        </picture>
                         <div className="absolute inset-0 bg-gradient-to-t from-[#0b0b12]/100 via-[#0b0b12]/25 to-[#0b0b12]/10 transition-opacity duration-300 group-hover:opacity-70" />
                     </>
                 ) : (
@@ -44,7 +48,7 @@ const PlayCardStyled = memo(({ play }: { play: Play }) => {
             </div>
 
             {/* Effet glow en haut */}
-            <div className="absolute -top-20 left-1/2 h-40 w-40 -translate-x-1/2 rounded-full bg-gradient-to-r from-orange-500 to-pink-500 opacity-0 blur-3xl transition-opacity duration-300 group-hover:opacity-30" />
+            <div className="absolute -top-16 left-1/2 h-28 w-28 -translate-x-1/2 rounded-full bg-gradient-to-r from-orange-500 to-pink-500 opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-20" />
 
             {/* Tags en haut à gauche */}
             <div className="relative z-10 flex flex-wrap gap-2 p-4 text-[11px]">
@@ -58,7 +62,7 @@ const PlayCardStyled = memo(({ play }: { play: Play }) => {
                 {/* Ligne décorative avec gradient */}
                 <div className="mb-3 h-0.5 w-16 rounded-full bg-gradient-to-r from-orange-500 via-pink-500 to-transparent opacity-70 transition-all duration-300 group-hover:w-24 group-hover:opacity-100" />
                 
-                <h2 className="gradient-text text-2xl font-bold leading-tight transition-all duration-300 group-hover:scale-[1.02]">
+                <h2 className="gradient-text text-2xl font-bold leading-tight transition-colors duration-300">
                     {play.title}
                 </h2>
                 <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-white/90 transition-colors duration-300 group-hover:text-white/100">
