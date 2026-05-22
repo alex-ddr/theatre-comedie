@@ -33,8 +33,6 @@ const PlayCardStyled = memo(({ play }: { play: Play }) => {
                                 src={imageSrc}
                                 alt={play.title}
                                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                                width="350"
-                                height="280"
                                 loading="lazy"
                                 decoding="async"
                                 onError={() => setImgOk(false)}

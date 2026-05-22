@@ -7,8 +7,8 @@ const INPUT_DIR = path.join(ROOT, "public", "img");
 const OUTPUT_DIR = path.join(INPUT_DIR, "optimized");
 
 const VARIANTS = [
-  { suffix: "card", width: 640, quality: 72 },
-  { suffix: "hero", width: 1280, quality: 78 },
+  { suffix: "card", width: 400, quality: 50 },
+  { suffix: "hero", width: 1000, quality: 60 },
 ];
 
 const SOURCE_EXTENSIONS = new Set([".png", ".jpg", ".jpeg", ".webp"]);

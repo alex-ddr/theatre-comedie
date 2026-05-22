@@ -1,0 +1,34 @@
+{
+	"slug": "tout-est-sous-controle",
+	"title": "Tout est sous contrôle",
+	"genre": "Comédie sociale",
+	"duration": "~ 1h30",
+	"distributions": [
+		{
+			"total": 5,
+			"h": 2,
+			"f": 3
+		},
+		{
+			"total": 5,
+			"h": 1,
+			"f": 4
+		},
+		{
+			"total": 5,
+			"h": 0,
+			"f": 5
+		}
+	],
+	"accroche": "Un boulevard acide sur les dérives et les gabegies de l’Administration",
+	"sections": {
+		"résumé": "Quatre responsables sont convoqués en urgence à 20 heures un samedi par le maire pour gérer une supposée catastrophe... dont personne ne connaît la nature exacte.\nProblème : le consultant payé à prix d'or laisse entendre qu’il va régler la situation mais ne sait rien. Alors il improvise, invente des faits en déroulant des présentations Powerpoint… des orientations de plus en plus délirantes sont prises pour une crise qui n’existe peut-être pas.\nMais quand la situation leur échappe totalement, une question s’impose : la catastrophe, est-ce vraiment l’événement... ou leur manière de le gérer ?",
+		"les atouts de la pièce": "Cette comédie comporte tous les ingrédients nécessaires à une bonne trame théâtrale : le pouvoir, la jalousie, le pouvoir de l’argent, le tout distillé avec rythme et humour. Par le biais d’une approche a priori désinvolte, cette pièce met le doigt sur l’un des maux de notre monde : un monde dans lequel l’informatique, les formulaires et les procédures ont pris le pas sur l’humain et sur le bon sens.\n« Tout est sous contrôle » est néanmoins une comédie gaie et légère, mettant en présence des personnages qui, malgré leurs petites qualités ou leurs gros défauts, sont drôles, parfois émouvants ou détestables, mais en tout état de cause toujours attachants… pour un spectacle résolument drôle, original et haut en couleurs.",
+		"thème": "Cette pièce décrit une situation qui, tout en étant absurde, se pose en révélateur des dérives dont peuvent être capables nos Administrations (avec un grand « A »).\nComment à partir d’une information non vérifiée peut-on mettre en place une machine de guerre pour faire face à une supposée catastrophe à venir ?\nC'est l'expérience jubilatoire à laquelle pourra participer le spectateur en retrouvant, dans chacun des 5 personnages de la pièce, un peu d'untel ou untel qu'il connaît, avec ses petites qualités ou ses grands travers."
+	},
+	"download": {
+		"url": "/pdfs/tout-est-sous-controle.pdf"
+	},
+	"poster": "/posters/placeholder.jpg",
+	"tags": []
+}

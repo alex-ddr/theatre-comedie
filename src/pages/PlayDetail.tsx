@@ -76,12 +76,10 @@ export default function PlayDetail() {
             <div className="relative h-72 w-full overflow-hidden border-b-1 border-b-orange-500/40 shadow-[0_8px_24px_-8px_rgba(251,146,60,0.5)]">
                 <picture>
                     <source srcSet={optimizedHeroSrc} type="image/webp" />
-                    <img 
+                    <img
                         src={imageSrc}
                         alt={play.title}
                         className="h-full w-full object-cover transition-transform duration-500"
-                        width="1200"
-                        height="600"
                         loading="eager"
                         decoding="async"
                         onError={(e) => {
