@@ -68,6 +68,14 @@ body,
     transform: translateZ(0); /* Force GPU layer */
 }
 
+/* Réduire ou désactiver les filtres coûteux sur petits écrans */
+@media (max-width: 768px) {
+    .glass { backdrop-filter: none; -webkit-backdrop-filter: none; }
+    /* réduire les grands flous */
+    .blur-2xl { filter: blur(6px); }
+    .blur-3xl { filter: blur(8px); }
+}
+
 .btn-primary {
     @apply rounded-full bg-gradient-to-r from-orange-500 via-pink-500 to-rose-500 px-5 py-2 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-rose-500/30;
 }

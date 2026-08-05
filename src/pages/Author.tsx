@@ -34,14 +34,17 @@ export default function Author() {
             <div className="rounded-lg border border-white/10 bg-white/5 p-8 leading-relaxed text-white/80 backdrop-blur-sm ">
                 {/* Photo flottante à gauche */}
                 <div className="float-left mr-8 mb-6 md:w-[250px] relative overflow-hidden rounded-lg ">
-                    <img 
-                        src="/img/franck-didier-2.jpeg" 
-                        alt="Franck DIDIER"
-                        className="object-cover mix-blend-screen rounded-lg"
-                        width="250"
-                        loading="eager"
-                        decoding="async"
-                    />
+                    <picture>
+                        <source srcSet="/img/optimized/franck-didier-2-card.webp" type="image/webp" />
+                        <img
+                            src="/img/franck-didier-2.jpeg"
+                            alt="Franck DIDIER"
+                            className="object-cover mix-blend-screen rounded-lg"
+                            width={250}
+                            loading="lazy"
+                            decoding="async"
+                        />
+                    </picture>
                     <div className="absolute inset-0 bg-pink-500/30 mix-blend-multiply pointer-events-none rounded-lg"></div>
                 </div>
 

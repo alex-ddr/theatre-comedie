@@ -80,8 +80,10 @@ export default function PlayDetail() {
                         src={imageSrc}
                         alt={play.title}
                         className="h-full w-full object-cover transition-transform duration-500"
-                        loading="eager"
+                        loading="lazy"
                         decoding="async"
+                        width={1600}
+                        height={480}
                         onError={(e) => {
                             e.currentTarget.style.display = 'none';
                         }}

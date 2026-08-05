@@ -173,25 +173,35 @@ function buildBlobs() {
 }
 
 export default function BlurBlob({ className, animation = true }: { className?: string; animation?: boolean }) {
+    // Si l'animation est désactivée (préférences utilisateur ou mobile),
+    // rendre un conteneur léger sans créer/animer les blobs coûteux.
+    if (!animation) return <div className={className} />;
+
     const blobs = useMemo(buildBlobs, []);
     const shouldAnimate = animation && !prefersReducedMotion;
 
     return (
         <div className={className}>
-            {blobs.map((b, i) => (
-                <motion.div
-                    key={i}
-                    className={b.cls}
-                    style={{ ...b.style, willChange: shouldAnimate ? 'transform, opacity' : 'auto' }}
-                    animate={shouldAnimate ? { x: b.x, y: b.y, scale: b.scale, opacity: b.opacity } : undefined}
-                    transition={shouldAnimate ? {
-                        x: { duration: b.dur, repeat: Infinity, ease: "linear" },
-                        y: { duration: b.dur, repeat: Infinity, ease: "linear" },
-                        scale: { duration: b.dur, repeat: Infinity, ease: "linear" },
-                        opacity: { duration: b.breathDur, repeat: Infinity, ease: "linear" },
-                    } : undefined}
-                />
-            ))}
+            {blobs.map((b, i) => {
+                // Ne pas appliquer `will-change` aux très gros blobs (très coûteux)
+                const isHuge = /h-\[(55|60|40)rem\]/.test(b.cls);
+                const willChange = shouldAnimate && !isHuge ? 'transform, opacity' : 'auto';
+
+                return (
+                    <motion.div
+                        key={i}
+                        className={b.cls}
+                        style={{ ...b.style, willChange }}
+                        animate={shouldAnimate ? { x: b.x, y: b.y, scale: b.scale, opacity: b.opacity } : undefined}
+                        transition={shouldAnimate ? {
+                            x: { duration: b.dur, repeat: Infinity, ease: "linear" },
+                            y: { duration: b.dur, repeat: Infinity, ease: "linear" },
+                            scale: { duration: b.dur, repeat: Infinity, ease: "linear" },
+                            opacity: { duration: b.breathDur, repeat: Infinity, ease: "linear" },
+                        } : undefined}
+                    />
+                );
+            })}
         </div>
     );
 }
