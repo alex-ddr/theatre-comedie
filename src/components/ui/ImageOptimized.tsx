@@ -23,14 +23,16 @@ export default function ImageOptimized({ src, webp, webpSmall, alt, className, w
         );
     }
 
-    // choose source: if preferSmall and webpSmall provided -> use that, else webp, else original
-    const imgSrc = preferSmall ? (webpSmall ?? webp ?? src) : (webp ?? src);
-
+    // Use <source> for webp variants and keep the <img> src as the original
+    // so browsers that don't support WebP still display the fallback PNG/JPG.
     return (
         <picture>
+            {preferSmall && webpSmall && (
+                <source srcSet={webpSmall} type="image/webp" />
+            )}
             {webp && <source srcSet={webp} type="image/webp" />}
             <img
-                src={imgSrc}
+                src={src}
                 alt={alt}
                 className={className}
                 loading={priority ? "eager" : "lazy"}

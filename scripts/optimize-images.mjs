@@ -7,8 +7,8 @@ const INPUT_DIR = path.join(ROOT, "public", "img");
 const OUTPUT_DIR = path.join(INPUT_DIR, "optimized");
 
 const VARIANTS = [
-  { suffix: "card-small", width: 200, quality: 40 },
-  { suffix: "card", width: 400, quality: 50 },
+  { suffix: "card-small", width: 600, quality: 60 },
+  { suffix: "card", width: 600, quality: 60 },
   { suffix: "hero", width: 1000, quality: 60 },
 ];
 
