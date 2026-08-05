@@ -2,6 +2,7 @@ import { useState, memo } from "react";
 import { Link } from "react-router-dom";
 import type { Play } from "@/types";
 import Tag from "@/components/ui/Tag";
+import ImageOptimized from "@/components/ui/ImageOptimized";
 
 const PlayCardStyled = memo(({ play }: { play: Play }) => {
     const [imgOk, setImgOk] = useState(true);
@@ -27,18 +28,19 @@ const PlayCardStyled = memo(({ play }: { play: Play }) => {
             <div className="absolute inset-0">
                 {imgOk ? (
                     <>
-                        <picture>
-                            <source srcSet={optimizedCardSrc} type="image/webp" />
-                            <img
+                        <div className="absolute inset-0">
+                            <ImageOptimized
                                 src={imageSrc}
+                                webp={optimizedCardSrc}
+                                webpSmall={`/img/optimized/${play.slug}-card-small.webp`}
                                 alt={play.title}
                                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                                loading="lazy"
-                                decoding="async"
-                                onError={() => setImgOk(false)}
+                                width={800}
+                                height={560}
+                                preferSmall={true}
                             />
-                        </picture>
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#0b0b12]/100 via-[#0b0b12]/25 to-[#0b0b12]/10 transition-opacity duration-300 group-hover:opacity-70" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-[#0b0b12]/100 via-[#0b0b12]/25 to-[#0b0b12]/10 transition-opacity duration-300 group-hover:opacity-70" />
+                        </div>
                     </>
                 ) : (
                     <div className="h-full w-full bg-gradient-to-br from-orange-500/20 via-pink-500/15 to-rose-500/20" />

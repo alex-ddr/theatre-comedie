@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Modal from "@/components/ui/Modal";
+import ImageOptimized from "@/components/ui/ImageOptimized";
 import { useParams, Link } from "react-router-dom";
 import { getPlay } from "@/lib/content";
 import Tag from "@/components/ui/Tag";
@@ -74,21 +75,15 @@ export default function PlayDetail() {
         <article>
             {/* Bandeau d'image pleine largeur */}
             <div className="relative h-72 w-full overflow-hidden border-b-1 border-b-orange-500/40 shadow-[0_8px_24px_-8px_rgba(251,146,60,0.5)]">
-                <picture>
-                    <source srcSet={optimizedHeroSrc} type="image/webp" />
-                    <img
-                        src={imageSrc}
-                        alt={play.title}
-                        className="h-full w-full object-cover transition-transform duration-500"
-                        loading="lazy"
-                        decoding="async"
-                        width={1600}
-                        height={480}
-                        onError={(e) => {
-                            e.currentTarget.style.display = 'none';
-                        }}
-                    />
-                </picture>
+                <ImageOptimized
+                    src={imageSrc}
+                    webp={optimizedHeroSrc}
+                    alt={play.title}
+                    className="h-full w-full object-cover transition-transform duration-500"
+                    width={1600}
+                    height={480}
+                    priority={false}
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f]/95 via-[#0a0a0f]/40 to-transparent pointer-events-none" />
                 <div className="absolute bottom-0 left-0 right-0 p-10 pointer-events-none">
                     <div className="mx-auto max-w-[1400px]">

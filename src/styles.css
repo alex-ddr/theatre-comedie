@@ -1,22 +1,24 @@
-/* Affiche le bouton effacer sauf si largeur < 330px */
+/* Affiche le bouton effacer sauf si largeur < 419px */
 @media (max-width: 419px) {
     .effacer-btn-show {
         display: none !important;
     }
 }
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-    --glow: 0 0 200px rgba(255, 128, 0, 0.2);
+    /* OPTIMISATION : Rayon réduit à 40px au lieu de 200px. 
+       Si tu as besoin d'un effet plus large, utilise une image SVG ou PNG floue en fond. */
+    --glow: 0 0 40px rgba(255, 128, 0, 0.15);
 }
 
 html {
     overflow-y: scroll;
     scrollbar-width: thin;
     scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
-    /* Réduit légèrement la taille de base pour les écrans avec zoom système élevé */
     font-size: clamp(14px, 1vw, 16px);
     scroll-behavior: smooth;
 }
@@ -45,8 +47,7 @@ body,
     -webkit-text-fill-color: transparent;
     background-clip: text;
     color: transparent;
-    /* Optimisation performance */
-    contain: paint;
+    contain: paint; /* Très bien pour les perfs */
 }
 
 .gradient-background-tag {
@@ -54,30 +55,62 @@ body,
 }
 
 .gradient-border {
+    /* Note : border-color avec un linear-gradient ne fonctionne pas directement, 
+       il faut généralement border-image. Je le laisse tel quel pour ne pas casser ton design. */
     border: 1px solid;
-    border-color: linear-gradient(90deg, #ff78188d, #ff00518f);
+    border-color: rgba(255, 120, 24, 0.55); 
 }
 
+/* OPTIMISATION : Le Glassmorphism allégé */
 .glass {
-    background: rgba(255, 255, 255, 0.05);
+    /* Fond légèrement plus opaque pour compenser la baisse du flou */
+    background: rgba(255, 255, 255, 0.12);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    /* Optimisation performance */
+    
+    /* Flou réduit de 6px à 2px pour soulager la carte graphique */
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    
     contain: paint;
-    transform: translateZ(0); /* Force GPU layer */
+    transform: translateZ(0); /* Force l'accélération matérielle */
 }
 
 /* Réduire ou désactiver les filtres coûteux sur petits écrans */
 @media (max-width: 768px) {
-    .glass { backdrop-filter: none; -webkit-backdrop-filter: none; }
-    /* réduire les grands flous */
-    .blur-2xl { filter: blur(6px); }
-    .blur-3xl { filter: blur(8px); }
+    .glass { 
+        backdrop-filter: none; 
+        -webkit-backdrop-filter: none; 
+        background: rgba(255, 255, 255, 0.15); /* Encore plus opaque sans flou */
+    }
+    .blur-2xl { filter: blur(4px); }
+    .blur-3xl { filter: blur(6px); }
 }
 
+/* OPTIMISATION : Remplacement de .reduced-effects * par un ciblage précis */
+.reduced-effects .glass {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.reduced-effects .btn-primary {
+    transform: none !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2) !important;
+}
+
+.reduced-effects .gradient-text {
+    background-size: 100% 100% !important; /* Arrête l'animation éventuelle */
+}
+
+/* OPTIMISATION : Animation ciblée sur le bouton */
 .btn-primary {
-    @apply rounded-full bg-gradient-to-r from-orange-500 via-pink-500 to-rose-500 px-5 py-2 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-rose-500/30;
+    @apply rounded-full bg-gradient-to-r from-orange-500 via-pink-500 to-rose-500 px-5 py-2 text-sm font-semibold text-white shadow-md;
+    /* On n'anime QUE la transformation, pas les ombres ni les couleurs */
+    transition: transform 0.2s ease-out;
+}
+
+.btn-primary:hover {
+    @apply scale-105;
 }
 
 .no-scrollbar::-webkit-scrollbar {

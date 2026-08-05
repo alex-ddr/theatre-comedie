@@ -69,11 +69,11 @@ export default function Home() {
 
     return (
         <div>
-            {/* <Hero 
+            <Hero 
                 title="Comédies de Franck DIDIER" 
                 subtitle="Découvrez plus de 20 ans de comédies aux multiples distributions,
 destinées aux troupes amateures comme aux compagnies professionnelles."
-            /> */}
+            />
 
             <section className="relative bg-[#0b0b12]/55 overflow-x-hidden">
                 <div className="mx-auto sm:px-8 py-8 md:py-10 max-w-full w-5/6">

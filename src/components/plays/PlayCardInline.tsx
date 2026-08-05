@@ -3,27 +3,28 @@ import { Link } from "react-router-dom";
 import type { Play } from "@/types";
 import Tag from "@/components/ui/Tag";
 
+import ImageOptimized from "@/components/ui/ImageOptimized";
+
 function Poster({ poster, title }: { poster?: string; title: string }) {
-    const [ok, setOk] = useState(true);
     const src = poster ? (poster.startsWith("/") ? poster : `/${poster}`) : "";
     const filename = poster ? poster.split('/').pop() : '';
     const base = filename ? filename.split('.').slice(0, -1).join('.') : '';
     const optimizedSrc = base ? `/img/optimized/${base}-card.webp` : null;
+    const optimizedSmall = base ? `/img/optimized/${base}-card-small.webp` : null;
 
     return (
         <div className="relative h-36 w-28 flex-shrink-0 overflow-hidden rounded-xl border border-white/10">
-            {poster && ok ? (
-                <picture>
-                    {optimizedSrc && <source srcSet={optimizedSrc} type="image/webp" />}
-                    <img
-                        src={src}
-                        alt={`Affiche – ${title}`}
-                        className="h-full w-full object-cover"
-                        loading="lazy"
-                        decoding="async"
-                        onError={() => setOk(false)}
-                    />
-                </picture>
+            {poster ? (
+                <ImageOptimized
+                    src={src}
+                    webp={optimizedSrc}
+                    webpSmall={optimizedSmall}
+                    alt={`Affiche – ${title}`}
+                    className="h-full w-full object-cover"
+                    width={280}
+                    height={360}
+                    preferSmall={true}
+                />
             ) : (
                 <div className="h-full w-full bg-gradient-to-br from-amber-700/25 via-rose-600/15 to-purple-700/20" />
             )}
